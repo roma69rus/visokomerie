@@ -1,0 +1,350 @@
+.preloader {
+    /* font-family: 'Century Gothic';
+    font-weight: normal; */
+    font-family: 'SF UI Text';
+    font-weight: 200;
+    text-rendering:optimizeLegibility;
+    /*фиксированное позиционирование*/
+    position: fixed;
+    /* координаты положения */
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    /* фоновый цвет элемента */
+    background: #000;
+    /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
+    z-index: 1001;
+    max-width: 100%;
+    
+    /* -webkit-text-stroke: .5px; */
+  }
+  
+  /* .preloader__row {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    width: 70px;
+    height: 70px;
+    margin-top: -35px;
+    margin-left: -35px;
+    text-align: center;
+    animation: preloader-rotate 2s infinite linear;
+  }
+  
+  .preloader__item {
+    position: absolute;
+    display: inline-block;
+    top: 0;
+    background-color: #337ab7;
+    border-radius: 100%;
+    width: 35px;
+    height: 35px;
+    animation: preloader-bounce 2s infinite ease-in-out;
+  }
+  
+  .preloader__item:last-child {
+    top: auto;
+    bottom: 0;
+    animation-delay: -1s;
+  }
+  
+  @keyframes preloader-rotate {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+  
+  @keyframes preloader-bounce {
+  
+    0%,
+    100% {
+      transform: scale(0);
+    }
+  
+    50% {
+      transform: scale(1);
+    }
+  } */
+  
+
+  #app {
+    background: #000;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-size: cover;
+    background-position: center;
+  }
+  #app__wrapper {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .app__logo{
+    padding-bottom: 50px;
+    color: white;
+    padding-left: 0.5em;
+    letter-spacing: 0.5em;
+    font-size: 240px;
+  }
+
+  .app__sub {
+    color: white;
+    padding-left: 1em;
+    /* color: white; */
+    letter-spacing: 1em;
+    font-size: 70px;
+  }
+  .app__glitch {
+    margin: 0;
+    font-family: sans-serif;
+    position: relative;
+    color: #fff;
+    font-size: 60px;
+    letter-spacing: 0.5em;
+    animation: glitch-skew 1s infinite linear alternate-reverse;
+  }
+  .app__glitch::before {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    left: 3px;
+    text-shadow: -3px 0 #FF9900;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim 5s infinite linear alternate-reverse;
+  }
+  .app__glitch::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    left: -3px;
+    text-shadow: -3px 0 #FF9900, 3px 3px #FF9900;
+    clip: rect(44px, 450px, 56px, 0);
+    animation: glitch-anim2 5s infinite linear alternate-reverse;
+  }
+  @keyframes glitch-anim {
+    0% {
+      clip: rect(98px, 9999px, 30px, 0);
+      transform: skew(0.93deg);
+    }
+    5% {
+      clip: rect(53px, 9999px, 4px, 0);
+      transform: skew(0.8deg);
+    }
+    10% {
+      clip: rect(12px, 9999px, 1px, 0);
+      transform: skew(0.25deg);
+    }
+    15% {
+      clip: rect(64px, 9999px, 57px, 0);
+      transform: skew(0.1deg);
+    }
+    20% {
+      clip: rect(93px, 9999px, 75px, 0);
+      transform: skew(0.58deg);
+    }
+    25% {
+      clip: rect(100px, 9999px, 88px, 0);
+      transform: skew(0.05deg);
+    }
+    30% {
+      clip: rect(88px, 9999px, 63px, 0);
+      transform: skew(0.68deg);
+    }
+    35% {
+      clip: rect(83px, 9999px, 25px, 0);
+      transform: skew(0.93deg);
+    }
+    40% {
+      clip: rect(39px, 9999px, 48px, 0);
+      transform: skew(0.01deg);
+    }
+    45% {
+      clip: rect(67px, 9999px, 85px, 0);
+      transform: skew(0.06deg);
+    }
+    50% {
+      clip: rect(58px, 9999px, 52px, 0);
+      transform: skew(1deg);
+    }
+    55% {
+      clip: rect(65px, 9999px, 81px, 0);
+      transform: skew(0.22deg);
+    }
+    60% {
+      clip: rect(90px, 9999px, 95px, 0);
+      transform: skew(0.7deg);
+    }
+    65% {
+      clip: rect(25px, 9999px, 77px, 0);
+      transform: skew(0.7deg);
+    }
+    70% {
+      clip: rect(23px, 9999px, 89px, 0);
+      transform: skew(0.42deg);
+    }
+    75% {
+      clip: rect(3px, 9999px, 43px, 0);
+      transform: skew(0.82deg);
+    }
+    80% {
+      clip: rect(11px, 9999px, 49px, 0);
+      transform: skew(0.85deg);
+    }
+    85% {
+      clip: rect(2px, 9999px, 38px, 0);
+      transform: skew(0.7deg);
+    }
+    90% {
+      clip: rect(38px, 9999px, 46px, 0);
+      transform: skew(0.54deg);
+    }
+    95% {
+      clip: rect(41px, 9999px, 55px, 0);
+      transform: skew(0.35deg);
+    }
+  }
+  @keyframes glitch-anim2 {
+    0% {
+      clip: rect(18px, 9999px, 71px, 0);
+      transform: skew(0.89deg);
+    }
+    5% {
+      clip: rect(92px, 9999px, 5px, 0);
+      transform: skew(0.17deg);
+    }
+    10% {
+      clip: rect(97px, 9999px, 29px, 0);
+      transform: skew(0.41deg);
+    }
+    15% {
+      clip: rect(71px, 9999px, 3px, 0);
+      transform: skew(0.07deg);
+    }
+    20% {
+      clip: rect(51px, 9999px, 10px, 0);
+      transform: skew(0.23deg);
+    }
+    25% {
+      clip: rect(2px, 9999px, 45px, 0);
+      transform: skew(0.47deg);
+    }
+    30% {
+      clip: rect(46px, 9999px, 11px, 0);
+      transform: skew(0.11deg);
+    }
+    35% {
+      clip: rect(28px, 9999px, 31px, 0);
+      transform: skew(0.79deg);
+    }
+    40% {
+      clip: rect(35px, 9999px, 26px, 0);
+      transform: skew(0.43deg);
+    }
+    45% {
+      clip: rect(85px, 9999px, 76px, 0);
+      transform: skew(0.99deg);
+    }
+    50% {
+      clip: rect(3px, 9999px, 38px, 0);
+      transform: skew(0.56deg);
+    }
+    55% {
+      clip: rect(60px, 9999px, 42px, 0);
+      transform: skew(0.23deg);
+    }
+    60% {
+      clip: rect(59px, 9999px, 34px, 0);
+      transform: skew(0.63deg);
+    }
+    65% {
+      clip: rect(19px, 9999px, 44px, 0);
+      transform: skew(0.79deg);
+    }
+    70% {
+      clip: rect(53px, 9999px, 79px, 0);
+      transform: skew(0.12deg);
+    }
+    75% {
+      clip: rect(23px, 9999px, 17px, 0);
+      transform: skew(0.24deg);
+    }
+    80% {
+      clip: rect(95px, 9999px, 47px, 0);
+      transform: skew(0.38deg);
+    }
+    85% {
+      clip: rect(80px, 9999px, 46px, 0);
+      transform: skew(0.41deg);
+    }
+    90% {
+      clip: rect(35px, 9999px, 16px, 0);
+      transform: skew(0.76deg);
+    }
+    95% {
+      clip: rect(87px, 9999px, 36px, 0);
+      transform: skew(0.71deg);
+    }
+  }
+  @keyframes glitch-skew {
+    0% {
+      transform: skew(5deg);
+    }
+    10% {
+      transform: skew(3deg);
+    }
+    20% {
+      transform: skew(-3deg);
+    }
+    30% {
+      transform: skew(-4deg);
+    }
+    40% {
+      transform: skew(3deg);
+    }
+    50% {
+      transform: skew(3deg);
+    }
+    60% {
+      transform: skew(-3deg);
+    }
+    70% {
+      transform: skew(4deg);
+    }
+    80% {
+      transform: skew(-2deg);
+    }
+    90% {
+      transform: skew(4deg);
+    }
+  }
+  
+
+
+
+
+  .loaded_hiding .preloader {
+    transition: 0.3s opacity;
+    opacity: 0;
+  }
+  
+  .loaded .preloader {
+    display: none;
+  }
