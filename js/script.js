@@ -5,7 +5,7 @@ window.onload = function () {
         window.setTimeout(function () {
             document.body.classList.add('loaded');
             document.body.classList.remove('loaded_hiding');
-        }, 500);
+        }, 800);
     }, 1500);
     
   }
@@ -14,7 +14,7 @@ window.onload = function () {
 
 var swiper = new Swiper('.swiper-container', {
     autoplay: {
-        delay: 4000,
+        delay: 5000,
     }, 
     pagination: {
         el: '.swiper-pagination',

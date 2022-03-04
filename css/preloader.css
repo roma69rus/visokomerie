@@ -16,11 +16,15 @@
     /* размещаем блок над всеми элементами на странице (это значение должно быть больше, чем у любого другого позиционированного элемента на странице) */
     z-index: 1001;
     max-width: 100%;
+  }
+    
+
+ 
     
     /* -webkit-text-stroke: .5px; */
-  }
+
   
-  /* .preloader__row {
+   .preloader__row {
     position: relative;
     top: 50%;
     left: 50%;
@@ -48,7 +52,18 @@
     bottom: 0;
     animation-delay: -1s;
   }
+
+  .loaded_hiding .preloader {
+    transition: 0.8s opacity;
+    opacity: 0;
+  }
   
+  .loaded .preloader {
+    display: none;
+  }
+  
+/*
+
   @keyframes preloader-rotate {
     100% {
       transform: rotate(360deg);
@@ -102,7 +117,6 @@
   .app__sub {
     color: white;
     padding-left: 1em;
-    /* color: white; */
     letter-spacing: 1em;
     font-size: 70px;
   }
@@ -139,6 +153,7 @@
     clip: rect(44px, 450px, 56px, 0);
     animation: glitch-anim2 5s infinite linear alternate-reverse;
   }
+   /*
   @keyframes glitch-anim {
     0% {
       clip: rect(98px, 9999px, 30px, 0);
@@ -334,17 +349,8 @@
     90% {
       transform: skew(4deg);
     }
-  }
+  } */
   
 
 
 
-
-  .loaded_hiding .preloader {
-    transition: 0.3s opacity;
-    opacity: 0;
-  }
-  
-  .loaded .preloader {
-    display: none;
-  }

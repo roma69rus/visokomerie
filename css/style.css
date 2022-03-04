@@ -480,8 +480,9 @@ a {
   }
   
   .featured__item {
-    width: auto;
+    width: 360px;
     min-height: 581px;
+    max-height: 601px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -503,7 +504,7 @@ a {
     font-style: normal;
     color: var(--white-color);
     text-transform: uppercase;
-    margin: 25px 18px 12px 18px;
+    margin: 18px 18px 12px 18px;
   }
   
   .featured__item_text {
@@ -541,8 +542,9 @@ a {
   }
   
   .featured__item_img {
+    height: 480px;
     width: 100%;
-    height: auto;
+    /* height: auto; */
   }
   
   /* .featured__item:hover .featured__item_overlay {
