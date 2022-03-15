@@ -59,7 +59,10 @@
         font-size: 24px;
     }
     .logo__img {
+        /* flex: 0 0 auto;
+        align-items: center; */
         width: 116px;
+        height: auto;
     }
 
     .nav {
@@ -358,7 +361,7 @@
     } 
 
     .footer__social {
-        align-self: center;
+        align-self: left;
     }
 
     .footer__icon {
