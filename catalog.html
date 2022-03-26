@@ -32,12 +32,12 @@
                 <nav class="nav">
                     <button class="menu-close btn-reset"></button>
                     <ul class="nav__list list-reset">
-                        <li class="nav__item"><a href="#" class="nav__link">Каталог</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">О нас</a></li>                                            
-                        <li class="nav__item"><a href="#" class="nav__link">Отзывы</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Оплата</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Доставка</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Контакты</a></li>
+                        <li class="nav__item"><a href="#" onclick="setTimeout(function(){ window.location.href = '/catalog.html';}, 400);" class="nav__link">Каталог</a></li>
+                        <li class="nav__item"><a href="#" onclick="setTimeout(function(){ window.location.href = '#';}, 400);" class="nav__link">О нас</a></li>                                            
+                        <li class="nav__item"><a href="#" onclick="setTimeout(function(){ window.location.href = '#';}, 400);" class="nav__link">Отзывы</a></li>
+                        <li class="nav__item"><a href="#" onclick="setTimeout(function(){ window.location.href = '#';}, 400);" class="nav__link">Оплата</a></li>
+                        <li class="nav__item"><a href="#" onclick="setTimeout(function(){ window.location.href = '#';}, 400);" class="nav__link">Доставка</a></li>
+                        <li class="nav__item"><a href="#" onclick="setTimeout(function(){ window.location.href = '#';}, 400);" class="nav__link">Контакты</a></li>
                     </ul>
                 </nav>
                 <button class="search">
@@ -56,14 +56,23 @@
         <!-- КАТАЛОГ -->
     <main>
         <section class="catalog container">
-            <h2 class="featured__heading">Featured Items</h2>
-            <p class="featured__text">Shop for items based on what we featured in this week</p>
+            <h2 class="catalog__heading">Каталог</h2>            
             <div class="catalog__grid">
                 <div class="catalog__item">
                     <div class="catalog__item-imgwrapper">
-                        <img class="catalog__item-img" src="img/product_palaco.jpg" alt="Палаццо">
-                        <button type="button" class="catalog__item-button">                                                        
-                        </button>
+                        <a href="/leather_product.html" class="">
+                            <img class="catalog__item-img" src="img/1_black_leather/1_black_leather.JPG" alt="Кожаные брюки">                            
+                        </a>    
+                    </div>
+                    <h3 class="catalog__item-heading">КОЖАНЫЕ БРЮКИ НА ВЫСОКИХ ДЕВУШЕК</h3>
+                    <p class="catalog__item-text">Кожаные, в которых продумана каждая деталь</p>
+                    <p class="catalog__item-price pink">$150.00</p>
+                </div>
+                <div class="catalog__item">
+                    <div class="catalog__item-imgwrapper">
+                        <a href="/blue_palaco_product.html" class="">
+                            <img class="catalog__item-img" src="img/2_blue_palaco/1_blue_palaco.jpg" alt="Палаццо">                            
+                        </a>                        
                     </div>
                     <h3 class="catalog__item-heading">PALAZZO</h3>
                     <p class="catalog__item-text">FRENCH BLUE</p>
@@ -71,36 +80,45 @@
                 </div>
                 <div class="catalog__item">
                     <div class="catalog__item-imgwrapper">
-                        <img class="catalog__item-img" src="img/product_banan.jpg" alt="Бананы">
-                        <button type="button" class="catalog__item-button">                                                        
-                        </button>
+                        <a href="/black_palaco_product.html" class="">
+                            <img class="catalog__item-img" src="img/3_black_palaco/1_black_palaco.jfif" alt="Палаццо">                            
+                        </a>                        
                     </div>
-                    <h3 class="catalog__item-heading">Бананы</h3>
-                    <p class="catalog__item-text">The best for her</p>
+                    <h3 class="catalog__item-heading">PALAZZO</h3>
+                    <p class="catalog__item-text">BLACK</p>
                     <p class="catalog__item-price">$100.00</p>
-                </div>
-                <div class="catalog__item tablet_hide">
-                    <div class="catalog__item-imgwrapper">
-                        <img class="catalog__item-img" src="img/product_leather.jpg" alt="Кожаные брюки">
-                        <button type="button" class="catalog__item-button">                                                        
-                        </button>
-                    </div>
-                    <h3 class="catalog__item-heading">КОЖАНЫЕ БРЮКИ НА ВЫСОКИХ ДЕВУШЕК</h3>
-                    <p class="catalog__item-text">Кожаные, в которых продумана каждая деталь</p>
-                    <p class="catalog__item-price">$150.00</p>
                 </div>
                 <div class="catalog__item">
                     <div class="catalog__item-imgwrapper">
-                        <img class="catalog__item-img" src="img/product_leather2.jpg" alt="A man in a yellow pants">
-                        <button type="button" class="catalog__item-button">                                                        
-                        </button>
+                        <a href="/green_banan_product.html" class="">
+                            <img class="catalog__item-img" src="img/4_green_banan/1_green_banan.JPG" alt="Бананы">                            
+                        </a>                        
                     </div>
-                    <h3 class="catalog__item-heading">ellery x m'o capsule</h3>
-                    <p class="catalog__item-text">Known for her sculptural takes on traditional tailoring,
-                        Australian
-                        arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
-                    <p class="catalog__item-price">$152.00</p>
-                </div>
+                    <h3 class="catalog__item-heading">Бананы</h3>
+                    <p class="catalog__item-text">GREEN</p>
+                    <p class="catalog__item-price">$100.00</p>
+                </div>                                
+                <div class="catalog__item">
+                    <div class="catalog__item-imgwrapper">
+                        <a href="/blue_banan_product.html" class="">
+                            <img class="catalog__item-img" src="img/5_blue_banan/1_blue_banan.jpg" alt="Бананы">                            
+                        </a>                        
+                    </div>
+                    <h3 class="catalog__item-heading">Бананы</h3>
+                    <p class="catalog__item-text">BLUE</p>
+                    <p class="catalog__item-price">$100.00</p>
+                </div>      
+                <div class="catalog__item">
+                    <div class="catalog__item-imgwrapper">
+                        <a href="/beige_palaco_product.html" class="">
+                            <img class="catalog__item-img" src="img/6_beige_palaco/1_beige_palaco.jpg" alt="Бананы">                            
+                        </a>                        
+                    </div>
+                    <h3 class="catalog__item-heading">PALAZZO</h3>
+                    <p class="catalog__item-text">BEIGE</p>
+                    <p class="catalog__item-price">$100.00</p>
+                </div>          
+                    
                 <!-- <div class="catalog__item">
                     <div class="catalog__item-imgwrapper">
                         <img class="catalog__item-img" src="img/man_in_white_shirt.jpg" alt="A man in a white shirt">

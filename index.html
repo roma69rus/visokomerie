@@ -4,7 +4,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Штанишки от Дашки, бери двое</title>
+    <!-- Chrome, Firefox OS and Opera -->
+    <meta name="theme-color" content="#000000">
+    <!-- iOS Safari -->
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="#000000"> -->
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- <meta name="apple-mobile-web-app-status-bar-style" content="black"> -->
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <title>Одежда для высоких девушек</title>
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/preloader.css">
     <link rel="stylesheet" href="fonts/SFUI/stylesheet.css">
@@ -47,12 +55,13 @@
                 <nav class="nav">
                     <button class="menu-close btn-reset"></button>
                     <ul class="nav__list list-reset">
-                        <li class="nav__item"><a href="catalog.html" class="nav__link">Каталог</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">О нас</a></li>                                            
-                        <li class="nav__item"><a href="#" class="nav__link">Отзывы</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Оплата</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Доставка</a></li>
-                        <li class="nav__item"><a href="#" class="nav__link">Контакты</a></li>
+                        <!-- <li class="nav__item"><a href="/catalog.html" class="nav__link">Каталог</a></li> -->                        
+                        <li class="nav__item"><a href="#" onclick="setTimeout(function(){ window.location.href = '/catalog.html';}, 400);" class="nav__link">Каталог</a></li>
+                        <li class="nav__item"><a href="#" onclick="setTimeout(function(){ window.location.href = '#';}, 400);" class="nav__link">О нас</a></li>                                            
+                        <li class="nav__item"><a href="#" onclick="setTimeout(function(){ window.location.href = '#';}, 400);" class="nav__link">Отзывы</a></li>
+                        <li class="nav__item"><a href="#" onclick="setTimeout(function(){ window.location.href = '#';}, 400);" class="nav__link">Оплата</a></li>
+                        <li class="nav__item"><a href="#" onclick="setTimeout(function(){ window.location.href = '#';}, 400);" class="nav__link">Доставка</a></li>
+                        <li class="nav__item"><a href="#" onclick="setTimeout(function(){ window.location.href = '#';}, 400);" class="nav__link">Контакты</a></li>
                     </ul>
                 </nav>
                 <button class="search">
@@ -75,14 +84,23 @@
             <div class="container hero__container">
                 <div class="hero-content">
                     <h2 class="hero-content__heading">VM</h2>
-                    <p class="hero-content__text">Безупречные брюки для высоких девушек</p> 
+                    <p class="hero-content__text">Безупречные брюки на высоких девушек</p> 
                 </div>
-                <button class="hero-content__btn site-btn">NEW</button>
+                <!-- <button class="hero-content__btn site-btn">NEW</button> -->
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
-                        <div class="swiper-slide" style="background-image: url(img/hero-img-hb.jpg);"></div>
-                        <div class="swiper-slide" style="background-image: url(img/product_palaco.jpg);"></div>
-                        <div class="swiper-slide" style="background-image: url(img/product_leather.jpg);"></div>
+                        <div class="swiper-slide">
+                            <video loop preload width="420" muted autoplay playsinline >
+                                <source src="/img/1_black_leather/7.mp4" type="video/mp4">
+                            </video>
+                        </div>        
+                        <div class="swiper-slide" style="background-image: url(img/hero-img-hb.jpg);">
+                            <p class="swiper__text">Нам один год!</p> 
+                        </div>
+                        <div class="swiper-slide" style="background-image: url(img/product_leather_hero.JPG);">
+                            <button class="hero-content__btn site-btn" onclick="window.location.href='/leather_product.html'">NEW</button>
+                        </div>
+                        <div class="swiper-slide" style="background-image: url(img/product_palaco.jpg);"></div>        
                     </div>
                     <div class="swiper-pagination"></div>
                 </div>
@@ -90,39 +108,17 @@
         </section>
 
 
-        <!-- ------------------------------------------------------------------------------------------------------------------------ -->
-        <!-- Урезать картинки до размера 360х420 -->
+        <!-- ------------------------------------------------------------------------------------------------------------------------ -->        
         <section class="featured container">
-            <h2 class="featured__heading">Featured Items</h2>
-            <p class="featured__text">Shop for items based on what we featured in this week</p>
+            <h2 class="featured__heading">Самое популярное</h2>
+            <!-- <p class="featured__text">Shop for items based on what we featured in this week</p> -->
             <ul class="featured__list">
                 <li class="featured__item">
                     <div class="featured__item_imgwrapper">
-                        <a href="product.html" class="">
-                            <img class="featured__item_img" src="img/product_palaco2.png" alt="A man with the backpack">                        
-                            <button type="button" class="featured__item_button">                            
-                        </a>
-                        </button>
-                    </div>
-                    <h3 class="featured__item_heading">PALAZZO</h3>
-                    <p class="featured__item_text">FRENCH BLUE</p>
-                    <p class="featured__item_price">$100.00</p>
-                </li>
-                <li class="featured__item">
-                    <div class="featured__item_imgwrapper">
-                        <img class="featured__item_img" src="img/product_banan.jpg" alt="A girl in the dark suite">                        
-                        <button type="button" class="featured__item_button">                            
-                        </button>
-                    </div>
-                    <h3 class="featured__item_heading">БАНАНЫ</h3>
-                    <p class="featured__item_text">The best for her</p>
-                    <p class="featured__item_price">$100.00</p>
-                </li>
-                <li class="featured__item">
-                    <div class="featured__item_imgwrapper">
-                        <img class="featured__item_img" src="img/product_leather2.jpg" alt="Man in hoody">                        
-                        <button type="button" class="featured__item_button">                            
-                        </button>
+                        <a href="/leather_product.html" class="">
+                            <img class="featured__item_img" src="img/1_black_leather/1_black_leather.JPG" alt="Man in hoody">                        
+                            <button type="button" class="featured__item_button"></button>
+                        </a>                        
                     </div>
                     <h3 class="featured__item_heading">КОЖАНЫЕ БРЮКИ НА ВЫСОКИХ ДЕВУШЕК</h3>
                     <p class="featured__item_text">Кожаные, в которых продумана каждая деталь</p>
@@ -130,19 +126,63 @@
                 </li>
                 <li class="featured__item">
                     <div class="featured__item_imgwrapper">
-                        <img class="featured__item_img" src="" alt="A man in the yellow pants">                        
-                        <button type="button" class="featured__item_button">                            
-                        </button>
+                        <a href="/blue_palaco_product.html" class="">
+                            <img class="featured__item_img" src="img/2_blue_palaco/1_blue_palaco.jpg" alt="A man with the backpack">                        
+                            <button type="button" class="featured__item_button"></button>
+                        </a>
                     </div>
-                    <h3 class="featured__item_heading">ellery x m'o capsule</h3>
-                    <p class="featured__item_text">Known for her sculptural takes on traditional tailoring,
-                        Australian
-                        arbiter of cool Kym Ellery teams up with Moda Operandi.</p>
-                    <p class="featured__item_price">$52.00</p>
+                    <h3 class="featured__item_heading">PALAZZO</h3>
+                    <p class="featured__item_text">FRENCH BLUE</p>
+                    <p class="featured__item_price">$100.00</p>
                 </li>
+                <li class="featured__item">
+                    <div class="featured__item_imgwrapper">
+                        <a href="product.html" class="">
+                            <img class="featured__item_img" src="img/3_black_palaco/1_black_palaco.jfif" alt="A girl in the dark suite">                        
+                            <button type="button" class="featured__item_button"></button>
+                        </a>
+                    </div>
+                    <h3 class="featured__item_heading">PALAZZO</h3>
+                    <p class="featured__item_text">BLACK</p>
+                    <p class="featured__item_price">$100.00</p>
+                </li>   
+                <li class="featured__item">
+                    <div class="featured__item_imgwrapper">
+                        <a href="product.html" class="">
+                            <img class="featured__item_img" src="img/4_green_banan/1_green_banan.JPG" alt="A girl in the dark suite">                        
+                            <button type="button" class="featured__item_button"></button>
+                        </a>
+                    </div>
+                    <h3 class="featured__item_heading">БАНАНЫ</h3>
+                    <p class="featured__item_text">GREEN</p>
+                    <p class="featured__item_price">$100.00</p>
+                </li>   
+                <li class="featured__item">
+                    <div class="featured__item_imgwrapper">
+                        <a href="product.html" class="">
+                            <img class="featured__item_img" src="img/5_blue_banan/1_blue_banan.jpg" alt="A girl in the dark suite">                        
+                            <button type="button" class="featured__item_button"></button>
+                        </a>
+                    </div>
+                    <h3 class="featured__item_heading">БАНАНЫ</h3>
+                    <p class="featured__item_text">BLUE</p>
+                    <p class="featured__item_price">$100.00</p>
+                </li>   
+                <li class="featured__item">
+                    <div class="featured__item_imgwrapper">
+                        <a href="product.html" class="">
+                            <img class="featured__item_img" src="img/6_beige_palaco/1_beige_palaco.jpg" alt="A girl in the dark suite">                        
+                            <button type="button" class="featured__item_button"></button>
+                        </a>
+                    </div>
+                    <h3 class="featured__item_heading">PALAZZO</h3>
+                    <p class="featured__item_text">BEIGE</p>
+                    <p class="featured__item_price">$100.00</p>
+                </li>                                
             </ul>
-            <a class="featured__link" href="/catalog.html">
-                <div class="featured__button">Browse All Product</div></a>
+            <!-- <a class="featured__link" href="/catalog.html">
+                <div class="featured__button">Все модели</div>
+            </a> -->
         </section>
         <!-- ------------------------------------------------------------------------------------------------------------------------ -->
 

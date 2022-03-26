@@ -14,7 +14,7 @@ window.onload = function () {
 
 var swiper = new Swiper('.swiper-container', {
     autoplay: {
-        delay: 5000,
+        delay: 10000,
     }, 
     pagination: {
         el: '.swiper-pagination',
@@ -22,6 +22,17 @@ var swiper = new Swiper('.swiper-container', {
     allowTouchMove: true,
     loop: true,
 });
+
+// Задержка при нажатии 
+
+function myFunction(){
+    ////your other code
+    ///
+    ///
+    window.location="/catalog.html";//at the end
+    
+    }
+
 
 /* tabs */
 
