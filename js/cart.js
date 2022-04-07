@@ -54,23 +54,37 @@ document.addEventListener('DOMContentLoaded', function () {
 
   //Очистка корзины и localStorage по кнопке
   addEvent(document.getElementById('cart__clear'), 'click', function(e){
-  cartText.style.display = "block";  
-  cart_ul.style.display = "none";
-  localStorage.removeItem('cart');
-  cartText = document.getElementById('cart__text');
-  cartText.innerHTML = 'Корзина пустая';
-  shippingForm.style.display = "none";
-  // cartText += "Корзина пуста";    
-  // cartCont.innerHTML = 'Корзина очишена.';
+    cartText.style.display = "block";  
+    cart_ul.style.display = "none";
+    localStorage.removeItem('cart');
+    cartText = document.getElementById('cart__text');
+    cartText.innerHTML = 'Корзина пустая';
+    shippingForm.style.display = "none";
+    // cartText += "Корзина пуста";    
+    // cartCont.innerHTML = 'Корзина очишена.';
   });
 
   //Установка маски на поле заполнения телефона
   maskPhone(getPhoneStr);
 
-  
+  //Окраска телефона в случае ошибки
+  getPhoneStr[0].addEventListener("input", function (e) {
+    if (!ValidPhone(this.value)) {
+      getPhoneStr[0].style.border = '3px solid red';
+    } else {
+      getPhoneStr[0].style.border = '1px solid black';
+      console.log("tyt");
+    }
+  })
 
-
-
+  //Окраска Имени? если не заполнено
+  getNameStr.addEventListener("change", function (e) {
+  if (ValidName(getNameStr.value))
+  {
+    getNameStr.style.border = '1px solid black';
+  } else
+    getNameStr.style.border = '3px solid red';
+  })
 });
 
 //Функция заполняет карточку данными
@@ -96,6 +110,11 @@ function getCartData(){
   return JSON.parse(localStorage.getItem('cart'));
 }
 
+// Записываем данные в LocalStorage
+function setCartData(data){
+  localStorage.setItem('cart', JSON.stringify(data));
+}
+
 // Функция кроссбраузерной установка обработчика событий
 function addEvent(elem, type, handler){
   if(elem.addEventListener){
@@ -109,8 +128,8 @@ function addEvent(elem, type, handler){
 
 // ОТПАРВИТЬ EMAIL по НАЖАТИЮ КНОПКИ
 addEvent(document.getElementById('cart__total_checkout'), 'click', function(e){
-  var bool;
   if (!ValidPhone(getPhoneStr[0].value)) {
+    getPhoneStr[0].style.border = '2px solid red'
     getPhoneStr[0].addEventListener('click', function(e) {
       e.preventDefault();
     })
@@ -123,23 +142,19 @@ addEvent(document.getElementById('cart__total_checkout'), 'click', function(e){
   
 });
 
-function sendEmail(mailText) {
+function sendEmail(mailText, subjecttext) {
   Email.send({
     SecureToken : "d3bf2e8a-47cd-46b0-a883-8db282bd0e5a",    
     To : 'admin@visokomerie.ru',
     // To : 'roma69rus@gmail.com',
     // To : 'pertuevr@gmail.com',
     From : "admin@visokomerie.ru",
-    Subject : "This is the subject",
+    Subject : subjecttext,
     Body : mailText
   })//.then(
     //OpenWatsappModal (this)
   //); 
 }
-
-
-
-
 
 
 var email_text = 'Сформирован заказ:' + "\n";
@@ -163,6 +178,14 @@ function ValidPhone(phoneNumber) {
   var re = /[^\w]{1}7\ \([\d]{3}\) [\d]{3}-[\d]{2}-[\d]{2}$/; //https://regexr.com/
   var valid = re.test(phoneNumber);
   if (valid) 
+    return true;
+  else 
+    return false;
+}  
+
+//валидация Имени клиента
+function ValidName(ClientName) {
+  if (ClientName != '') 
     return true;
   else 
     return false;

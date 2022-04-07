@@ -938,29 +938,6 @@ ol, ul {
     color: var(--orange-color);
 }
 
-.ui-accordion-content {
-    min-height: auto;
-    padding-bottom: 40px;
-}
-
-.accordion-icon {
-    width: 50px;
-    height: 50px;
-    display: block;
-    position: absolute;
-    top: 30px;
-    right: 0;
-    border-radius: 100%;
-    background-image: url("../img/accordion-icon.svg");
-    background-repeat: no-repeat;
-    background-position: center;
-    transition: transform .3s ease-in-out;
-    background-color: var(--grey-color-2);
-}
-
-.accordion-icon:hover {
-    background-color: var(--orange-color);
-}
 
 .ui-state-active .accordion-icon {
     transform: rotate(45deg);
