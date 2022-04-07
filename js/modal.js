@@ -12,10 +12,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
             e.preventDefault();
 
-            var modalId = this.getAttribute('data-modal'),
-                modalElem = document.querySelector('.modal[data-modal="' + modalId + '"]');
-            
-            // var modalElem = document.querySelector('#modal-1');
+            var modalId = this.getAttribute('data-modal'),            
+                modalElem = document.querySelector(`.modal[data-modal="${modalId}"]`);
+                        
             modalElem.classList.add('active');
             overlay.classList.add('active');
 
@@ -26,10 +25,10 @@ document.addEventListener('DOMContentLoaded', function () {
     closeButtons.forEach(function (item) {
 
         item.addEventListener('click', function (e) {
-            var parentModal = this.closest('.modal');
+            var parentModal = this.closest('.modal'); //closest возвращает ближайший родительский элемент по указанному селектору
 
-            parentModal.classList.remove('active');
-            overlay.classList.remove('active');
+            parentModal.classList.remove('active'); //удаляем у модального окна класс Active
+            overlay.classList.remove('active');     //и у overlay
         });
 
     }); // end foreach
@@ -46,8 +45,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
     /* скрытие окна при клике на подложку */
     overlay.addEventListener('click', function () {
-        document.querySelector('.modal.active').classList.remove('active');
-        this.classList.remove('active');
+        document.querySelector('.modal.active').classList.remove('active'); //удаляем у модального окна класс Active
+        this.classList.remove('active');                                    //и у overlay
     });
 
 });

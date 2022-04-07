@@ -1,73 +1,102 @@
-// Открываем корзину со списком добавленных товаров
-var cartData = getCartData();
-var d = document;
-var cart_ul = d.getElementById("cart__list");
-
+//Телефон для связи с менеджером через Whatsapp
 const phoneNumber = "79811612280";
 
-// cart_ul.appendChild(newli);
-var text = d.getElementById('cart__text'); //корзина пустая
-var totalForm = d.getElementById('cart__grandtotal_text');
+// Получаем данные из LocalStorage
+var cartData = getCartData();
 
-var shippingForm = d.getElementById('cart__shipping_wrapper'); //форма отправки (скрыть, показать)
+var cart_ul = document.getElementById("cart__list");
 
-if(cartData !== null){
+var cartText = document.getElementById('cart__text'); //селектор объекта "корзина пустая"
+var cartTotal = document.getElementById('cart__grandtotal_text'); //ИТОГО
+
+var shippingForm = document.getElementById('cart__shipping_wrapper'); //форма обратной связи (скрыть, показать)
+
+var getPhoneStr = document.querySelectorAll('.phone');     //инпут номера телефона
+var getNameStr = document.getElementById('clientname'); //инпут имени
+
+var checkoutBtn = document.getElementById('cart__total_checkout'); //Кнопка ЗАКАЗАТЬ
+
+document.addEventListener('DOMContentLoaded', function () {
+  //ЗАПОЛНЯЕМ СТРАНИЦУ ТОВАРАМИ
+  if(cartData !== null){
     var product_name = ''; 
     var price = ''; 
     var color = '';
     var price_num = 0;  //цена товара Number
-    var quantity = ''; 
+    var quantity = 0; 
     var totalPrice = 0;
     for(var items in cartData){    
       var newli = document.createElement("li");
-      // newli.innerHTML = '';
+      newli.classList.add("cart__list-item");    
+
       product_name = cartData[items][0];
       price = cartData[items][1];
       quantity = cartData[items][2];   
       img = cartData[items][3];
       color = cartData[items][4];
       
-      price_num = Number (price.substring(1) * quantity);   //обрезаем доллар, переводим в number и умножаем на количество
-      // price_num = price_num * quantity;
+      price_num = Number (price.substring(1) * quantity);   //обрезаем доллар substring, переводим в number и умножаем на количество
       totalPrice += price_num;   
-      newli.classList.add("cart__list-item");    
+      
       newli.innerHTML = writeli(product_name, price, color, quantity, img);      
       // console.log(newli);
       cart_ul.appendChild(newli);
     }
-    text.style.display = "none";
+    cartText.style.display = "none";
     
     // console.log (totalPrice);
-    totalForm.innerHTML = "ИТОГО $" + totalPrice;
-} else {
-    // если в корзине пусто, то сигнализируем об этом
-    text.innerHTML = 'Корзина пустая';
-    shippingForm.style.display = "none";
-}
+    cartTotal.innerHTML = "ИТОГО $" + totalPrice;
+  } else {
+      // если в корзине пусто, то сигнализируем об этом
+      cartText.innerHTML = 'Корзина пустая';
+      shippingForm.style.display = "none";
+  }
+
+  //Очистка корзины и localStorage по кнопке
+  addEvent(document.getElementById('cart__clear'), 'click', function(e){
+  cartText.style.display = "block";  
+  cart_ul.style.display = "none";
+  localStorage.removeItem('cart');
+  cartText = document.getElementById('cart__text');
+  cartText.innerHTML = 'Корзина пустая';
+  shippingForm.style.display = "none";
+  // cartText += "Корзина пуста";    
+  // cartCont.innerHTML = 'Корзина очишена.';
+  });
+
+  //Установка маски на поле заполнения телефона
+  maskPhone(getPhoneStr);
+
+  
 
 
+
+});
+
+//Функция заполняет карточку данными
 function writeli (name, price, color, quantity, img){
     var html_text = ""
     
-    html_text += "<img src='" + img + "' alt='Man in hoody' width='262' height='306' class='cart__list-img'>";
+    html_text += `<img src='${img}' alt='Man in hoody' width='262' height='306' class='cart__list-img'>`;
     html_text += "<div class='cart__list-wrapper'>";
-    html_text += "<h3 class='cart__list-heading'>" + name + "</h3>";
-    html_text +=      "<p class='cart__list-text'>Price: " + price+ "</p>";
-    html_text +=      "<p class='cart__list-text'>Color: " + color + "</p>";                    
+    html_text += `<h3 class='cart__list-heading'>${name}</h3>`;
+    html_text +=      `<p class='cart__list-text'>Price: ${price}</p>`;
+    html_text +=      `<p class='cart__list-text'>Color: ${color}</p>`;                    
     html_text +=      "<div class='cart__list-subwrapper'>"
     html_text +=          "<label class='cart__list-text'>Quantity:</label>"
     html_text +=          "<input type='text' class='cart__list-qty' placeholder='" + quantity+ "'>"
     html_text +=      "</div>"
     html_text +="</div>";
 
-    return html_text;
-    
+    return html_text;    
 }
 
+//Функция получания данных из localStorage
 function getCartData(){
   return JSON.parse(localStorage.getItem('cart'));
 }
 
+// Функция кроссбраузерной установка обработчика событий
 function addEvent(elem, type, handler){
   if(elem.addEventListener){
     elem.addEventListener(type, handler, false);
@@ -77,44 +106,41 @@ function addEvent(elem, type, handler){
   return false;
 }
 
-addEvent(d.getElementById('cart__list-button'), 'click', function(e){
-  text.style.display = "block";  
-  cart_ul.style.display = "none";
-  localStorage.removeItem('cart');
-  text = d.getElementById('cart__text');
-  text.innerHTML = 'Корзина пустая';
-  shippingForm.style.display = "none";
-  // text += "Корзина пуста";    
-  // cartCont.innerHTML = 'Корзина очишена.';
-});
-
-// addEvent(d.getElementById('cart__total_checkout'), 'click', sendEmail(cartData));
-
-maskPhone('.phone');
-
-
-
-
 
 // ОТПАРВИТЬ EMAIL по НАЖАТИЮ КНОПКИ
-addEvent(d.getElementById('cart__total_checkout'), 'click', function(e){
-  // Email.send({
-  //   SecureToken : "d3bf2e8a-47cd-46b0-a883-8db282bd0e5a",    
-  //   To : 'admin@visokomerie.ru',
-  //   // To : 'roma69rus@gmail.com',
-  //   // To : 'pertuevr@gmail.com',
-  //   From : "admin@visokomerie.ru",
-  //   Subject : "This is the subject",
-  //   Body : email_text
-  // }).then(
-  //   OpenWatsappModal (this)
-  // ); 
-  OpenWatsappModal (this)
+addEvent(document.getElementById('cart__total_checkout'), 'click', function(e){
+  var bool;
+  if (!ValidPhone(getPhoneStr[0].value)) {
+    getPhoneStr[0].addEventListener('click', function(e) {
+      e.preventDefault();
+    })
+  } else {
+    OpenWatsappModal (this)
+  }
+
+  //console.log(getPhoneStr[0].value);
+  //console.log(ValidPhone(getPhoneStr[0].value));
+  
 });
 
+function sendEmail(mailText) {
+  Email.send({
+    SecureToken : "d3bf2e8a-47cd-46b0-a883-8db282bd0e5a",    
+    To : 'admin@visokomerie.ru',
+    // To : 'roma69rus@gmail.com',
+    // To : 'pertuevr@gmail.com',
+    From : "admin@visokomerie.ru",
+    Subject : "This is the subject",
+    Body : mailText
+  })//.then(
+    //OpenWatsappModal (this)
+  //); 
+}
 
-var getPhoneStr = document.getElementById('phone').value;
-var getNameStr = document.getElementById('clientname').value;
+
+
+
+
 
 var email_text = 'Сформирован заказ:' + "\n";
 var whatsapp_text = "Привет, я хочу сделать заказ на сайте visokomerie.ru" + "\n";
@@ -131,6 +157,20 @@ for (var items in cartData){
 email_text+="Имя клиента " + getNameStr + "\n" + "Телефон :" + getPhoneStr;
 whatsapp_text += "Меня зовут: " + getNameStr;
 
+
+//валидация номера телефона
+function ValidPhone(phoneNumber) {
+  var re = /[^\w]{1}7\ \([\d]{3}\) [\d]{3}-[\d]{2}-[\d]{2}$/; //https://regexr.com/
+  var valid = re.test(phoneNumber);
+  if (valid) 
+    return true;
+  else 
+    return false;
+}  
+
+
+
+//Функция обработки 
 function OpenWatsappModal (btn)
 {
   var modalId = btn.getAttribute('data-modal'),
@@ -151,12 +191,11 @@ function OpenWatsappModal (btn)
   })
 }
 
-/////////////////////////// tel 
 
 
-
-function maskPhone(selector, masked = '+7 (___) ___-__-__') {
-	const elems = document.querySelectorAll(selector);
+//Функция установки маски на поле заполнения телефона
+function maskPhone(elems, masked = '+7 (___) ___-__-__') {
+	//const elems = document.querySelectorAll(selector);
 
 	function mask(event) {
 		const keyCode = event.keyCode;
@@ -191,41 +230,4 @@ function maskPhone(selector, masked = '+7 (___) ___-__-__') {
 		elem.addEventListener("focus", mask);
 		elem.addEventListener("blur", mask);
 	}
-
-	
 }
-
-
-// newli.innerHTML = html_text;
-
-    // console.log(newli);
-
-/*
-function openCart(e){
-    var cartData = getCartData(), // вытаскиваем все данные корзины
-        totalItems = '';
-    // если что-то в корзине уже есть, начинаем формировать данные для вывода
-    if(cartData !== null){
-      totalItems = '<table class="shopping_list"><tr><th>Наименование</th><th>Цена</th><th>Кол-во</th></tr>';
-      for(var items in cartData){
-        totalItems += '<tr>';
-        for(var i = 0; i < cartData[items].length; i++){
-          totalItems += '<td>' + cartData[items][i] + '</td>';
-        }
-        totalItems += '</tr>';
-      }
-      totalItems += '</table>';
-      cartCont.innerHTML = totalItems;
-    } else {
-      // если в корзине пусто, то сигнализируем об этом
-      cartCont.innerHTML = 'В корзине пусто!';
-    }
-    return false;
-  }
-  // Открыть корзину
-  addEvent(d.getElementById('checkout'), 'click', openCart);
-  // Очистить корзину 
-  addEvent(d.getElementById('clear_cart'), 'click', function(e){
-    localStorage.removeItem('cart');
-    cartCont.innerHTML = 'Корзина очишена.';
-  });*/
