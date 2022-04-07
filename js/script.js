@@ -1,21 +1,21 @@
 /* preloader */
 window.onload = function () {
-    setTimeout(() => { 
+    setTimeout(() => {
         document.body.classList.add('loaded_hiding');
         window.setTimeout(function () {
             document.body.classList.add('loaded');
             document.body.classList.remove('loaded_hiding');
         }, 800);
     }, 1500);
-    
-  }
+
+}
 
 /* slider */
 
 var swiper = new Swiper('.swiper-container', {
     autoplay: {
         delay: 10000,
-    }, 
+    },
     pagination: {
         el: '.swiper-pagination',
     },
@@ -25,13 +25,13 @@ var swiper = new Swiper('.swiper-container', {
 
 // Задержка при нажатии 
 
-function myFunction(){
+function myFunction() {
     ////your other code
     ///
     ///
-    window.location="/catalog.html";//at the end
-    
-    }
+    window.location = "/catalog.html";//at the end
+
+}
 
 
 /* tabs */
@@ -58,12 +58,12 @@ document.addEventListener('DOMContentLoaded', function () {
 
 /* accordion */
 
-$( function() {
-    $( "#accordion" ).accordion({
+$(function () {
+    $("#accordion").accordion({
         collapsible: true,
         active: false,
     });
-  } );
+});
 
 /* burger */
 
@@ -78,5 +78,4 @@ burgerBtn.addEventListener('click', () => {
 menuClose.addEventListener('click', () => {
     menuBurger.classList.remove('burger-active');
 });
-
 

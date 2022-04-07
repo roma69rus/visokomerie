@@ -19,7 +19,7 @@
     
     
     .header__container {
-        height: 69px;
+        height: 49px;
     }
 
     .hero {
@@ -39,7 +39,7 @@
     .hero-content__text {
         font-size: 18px;
         max-width: 540px;
-        margin-bottom: 55px;
+        margin-bottom: 0px;
     }
 
     .nav {
