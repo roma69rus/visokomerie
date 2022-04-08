@@ -4,6 +4,7 @@ const phoneNumber = "79811612280";
 // Получаем данные из LocalStorage
 var cartData = getCartData();
 
+//список элементов
 var cart_ul = document.getElementById("cart__list");
 
 var cartText = document.getElementById('cart__text'); //селектор объекта "корзина пустая"
@@ -16,9 +17,101 @@ var getNameStr = document.getElementById('clientname'); //инпут имени
 
 var checkoutBtn = document.getElementById('cart__total_checkout'); //Кнопка ЗАКАЗАТЬ
 
+
+// НЕРАБОТАЕТ!!!!!!!!!!!!!!!!!!!!!!!!1
+// var closeBtn = document.querySelectorAll(".cart__list-wrapper::after");
+// closeBtn.forEach(element => {
+//   element.addEventListener('click', function (e) {
+//     console.log("click");
+//   }) 
+// }) 
+//console.log(JSON.stringify(closeBtn))
+
+
+
 document.addEventListener('DOMContentLoaded', function () {
+  
+  loadCartItem ();
+
+
+  //Очистка корзины и localStorage по кнопке
+  addEvent(document.getElementById('cart__clear'), 'click', function(e){
+    cartText.style.display = "block";  
+    cart_ul.style.display = "none";
+    localStorage.removeItem('cart');
+    cartText = document.getElementById('cart__text');
+    cartText.innerHTML = 'Корзина пустая';
+    shippingForm.style.display = "none";
+    // cartText += "Корзина пуста";    
+    // cartCont.innerHTML = 'Корзина очишена.';
+  });
+
+  //Установка маски на поле заполнения телефона
+  maskPhone(getPhoneStr);
+
+  //Окраска телефона в случае ошибки (Динамика - во время заполнения)
+  getPhoneStr[0].addEventListener("input", function (e) {
+    if (!ValidPhone(this.value)) {
+      getPhoneStr[0].style.border = '3px solid red';
+    } else {
+      getPhoneStr[0].style.border = '1px solid black';
+      console.log("tyt");
+    }
+  })
+
+  //Окраска Имени, если не заполнено (Динамика - во время заполнения)
+  getNameStr.addEventListener("change", function (e) {
+  if (ValidName(getNameStr.value))
+  {
+    getNameStr.style.border = '1px solid black';
+  } else
+    getNameStr.style.border = '3px solid red';
+  })
+
+  // ОТПАРВИТЬ EMAIL по НАЖАТИЮ КНОПКИ
+  addEvent(document.getElementById('cart__total_checkout'), 'click', function(e){
+    if ((!ValidPhone(getPhoneStr[0].value)) & (!ValidName(getNameStr.value))) {
+      getPhoneStr[0].style.border = '2px solid red'
+      getPhoneStr[0].addEventListener('click', function(e) {
+        e.preventDefault();
+      })
+    } else {
+      //sendEmail(getSendText().get("email"), getPhoneStr[0].value);
+      OpenWatsappModal (this, getSendText().get("whatsapp"))      
+    } 
+  });
+
+  //Удаляем конкретный товар из корзины по крестику
+  document.querySelectorAll(".cart__list-close").forEach(item => {
+    item.addEventListener('click', function (e) {
+      var index = this.closest('li').getAttribute("data-id");
+      console.log(index);
+      delete cartData[index];
+      console.log(cartData);
+      setCartData(cartData);
+      cartData = getCartData();
+      loadCartItem ();
+    });
+  })
+
+});
+
+function loadCartItem ()
+{
+  cartData = getCartData();
+
+
+  var length= 0;
+  for(var key in cartData) {
+    if(cartData.hasOwnProperty(key)){
+        length++;
+    }
+  } 
+  console.log(length)
+
+
   //ЗАПОЛНЯЕМ СТРАНИЦУ ТОВАРАМИ
-  if(cartData !== null){
+  if(length > 0){
     var product_name = ''; 
     var price = ''; 
     var color = '';
@@ -28,6 +121,8 @@ document.addEventListener('DOMContentLoaded', function () {
     for(var items in cartData){    
       var newli = document.createElement("li");
       newli.classList.add("cart__list-item");    
+      //newli.id = items;
+      newli.setAttribute("data-id", items);
 
       product_name = cartData[items][0];
       price = cartData[items][1];
@@ -51,41 +146,7 @@ document.addEventListener('DOMContentLoaded', function () {
       cartText.innerHTML = 'Корзина пустая';
       shippingForm.style.display = "none";
   }
-
-  //Очистка корзины и localStorage по кнопке
-  addEvent(document.getElementById('cart__clear'), 'click', function(e){
-    cartText.style.display = "block";  
-    cart_ul.style.display = "none";
-    localStorage.removeItem('cart');
-    cartText = document.getElementById('cart__text');
-    cartText.innerHTML = 'Корзина пустая';
-    shippingForm.style.display = "none";
-    // cartText += "Корзина пуста";    
-    // cartCont.innerHTML = 'Корзина очишена.';
-  });
-
-  //Установка маски на поле заполнения телефона
-  maskPhone(getPhoneStr);
-
-  //Окраска телефона в случае ошибки
-  getPhoneStr[0].addEventListener("input", function (e) {
-    if (!ValidPhone(this.value)) {
-      getPhoneStr[0].style.border = '3px solid red';
-    } else {
-      getPhoneStr[0].style.border = '1px solid black';
-      console.log("tyt");
-    }
-  })
-
-  //Окраска Имени? если не заполнено
-  getNameStr.addEventListener("change", function (e) {
-  if (ValidName(getNameStr.value))
-  {
-    getNameStr.style.border = '1px solid black';
-  } else
-    getNameStr.style.border = '3px solid red';
-  })
-});
+}
 
 //Функция заполняет карточку данными
 function writeli (name, price, color, quantity, img){
@@ -93,7 +154,8 @@ function writeli (name, price, color, quantity, img){
     
     html_text += `<img src='${img}' alt='Man in hoody' width='262' height='306' class='cart__list-img'>`;
     html_text += "<div class='cart__list-wrapper'>";
-    html_text += `<h3 class='cart__list-heading'>${name}</h3>`;
+    html_text +=      `<h3 class='cart__list-heading'>${name}</h3>`;
+    html_text +=      '<div class="cart__list-close"></div>';
     html_text +=      `<p class='cart__list-text'>Price: ${price}</p>`;
     html_text +=      `<p class='cart__list-text'>Color: ${color}</p>`;                    
     html_text +=      "<div class='cart__list-subwrapper'>"
@@ -125,23 +187,6 @@ function addEvent(elem, type, handler){
   return false;
 }
 
-
-// ОТПАРВИТЬ EMAIL по НАЖАТИЮ КНОПКИ
-addEvent(document.getElementById('cart__total_checkout'), 'click', function(e){
-  if (!ValidPhone(getPhoneStr[0].value)) {
-    getPhoneStr[0].style.border = '2px solid red'
-    getPhoneStr[0].addEventListener('click', function(e) {
-      e.preventDefault();
-    })
-  } else {
-    OpenWatsappModal (this)
-  }
-
-  //console.log(getPhoneStr[0].value);
-  //console.log(ValidPhone(getPhoneStr[0].value));
-  
-});
-
 function sendEmail(mailText, subjecttext) {
   Email.send({
     SecureToken : "d3bf2e8a-47cd-46b0-a883-8db282bd0e5a",    
@@ -156,21 +201,33 @@ function sendEmail(mailText, subjecttext) {
   //); 
 }
 
+// Функция, которая генерирует текст для Email Whatsapp
+function getSendText() {
+  const arr = new Map();
+  var email_text = 'Сформирован заказ:' + "<br>";
+  var whatsapp_text = "Привет, я хочу сделать заказ на сайте visokomerie.ru: " + "\n";
+  for (var items in cartData){
+    product_name = cartData[items][0];
+    price = cartData[items][1];
+    quantity = cartData[items][2];   
+    img = cartData[items][3];
+    color = cartData[items][4];
 
-var email_text = 'Сформирован заказ:' + "\n";
-var whatsapp_text = "Привет, я хочу сделать заказ на сайте visokomerie.ru" + "\n";
-for (var items in cartData){
-  product_name = cartData[items][0];
-  price = cartData[items][1];
-  quantity = cartData[items][2];   
-  img = cartData[items][3];
-  color = cartData[items][4];
+    email_text += "- " + product_name + " " + color + " Количество: " + quantity + " Цена: " + price + ";<br>";
+    whatsapp_text += "- " + product_name + " " + color + " Количество: " + quantity + " Цена: " + price + ";\n";
+  }
+  email_text+="Имя клиента: " + getNameStr.value + "<br>" + "Телефон :" + getPhoneStr[0].value;
+  whatsapp_text += "Меня зовут " + getNameStr.value;
+  
+  //ассоциативный массив - коллекция Map
+  arr
+    .set("email", email_text)
+    .set("whatsapp", whatsapp_text);
 
-  email_text += product_name + " " + color + " Количество: " + quantity + " Цена: " + price + "\n";
-  whatsapp_text += product_name + " " + color + " Количество: " + quantity + " Цена: " + price + "\n";
+  return arr;
 }
-email_text+="Имя клиента " + getNameStr + "\n" + "Телефон :" + getPhoneStr;
-whatsapp_text += "Меня зовут: " + getNameStr;
+
+
 
 
 //валидация номера телефона
@@ -191,10 +248,8 @@ function ValidName(ClientName) {
     return false;
 }  
 
-
-
-//Функция обработки 
-function OpenWatsappModal (btn)
+//Модаьное окно и обработка кнопки whatsapp
+function OpenWatsappModal (btn, whatsappTxt)
 {
   var modalId = btn.getAttribute('data-modal'),
   modalElem = document.querySelector('.modal[data-modal="' + modalId + '"]'),
@@ -206,15 +261,13 @@ function OpenWatsappModal (btn)
 
   var watsup_btn = document.querySelector('#watsup_btn');
   watsup_btn.addEventListener('click', function(e) {
-    var txt = "https://wa.me/" + phoneNumber +"?text=" + encodeURI(whatsapp_text);
+    var txt = "https://wa.me/" + phoneNumber +"?text=" + encodeURI(whatsappTxt);
     window.open(txt, "_blank");
     console.log(txt);
-    console.log(whatsapp_text);
+    console.log(whatsappTxt);
     console.log(getNameStr);
   })
 }
-
-
 
 //Функция установки маски на поле заполнения телефона
 function maskPhone(elems, masked = '+7 (___) ___-__-__') {
@@ -245,9 +298,7 @@ function maskPhone(elems, masked = '+7 (___) ___-__-__') {
 		if (event.type === "blur" && this.value.length < 5) {
 			this.value = "";
 		}
-
 	}
-
 	for (const elem of elems) {
 		elem.addEventListener("input", mask);
 		elem.addEventListener("focus", mask);

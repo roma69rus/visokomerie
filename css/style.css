@@ -2045,7 +2045,7 @@ catalog__pagination-item, .catalog__pagination-active, .catalog__pagination-link
   }
 }
 
-.cart__list-wrapper::after {
+.cart__list-close {
   position: absolute;
   content: url("../img/cross.svg");
   top: 20px;
@@ -2053,7 +2053,7 @@ catalog__pagination-item, .catalog__pagination-active, .catalog__pagination-link
 }
 
 @media (max-width: 635px) {
-  .cart__list-wrapper::after {
+  .cart__list-close {
     top: 13px;
     right: 13px;
   }
