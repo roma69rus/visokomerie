@@ -89,36 +89,27 @@ function loadCartItem ()
   cartData = getCartData();
 
   //ЗАПОЛНЯЕМ СТРАНИЦУ ТОВАРАМИ
-  var length= 0;
-  for(var key in cartData) {
-    if(cartData.hasOwnProperty(key)){
-        length++;
-    }
-  } 
-//перенести выше
-  // if(length > 0){
-  if(length > 0){
-    var totalPrice = 0;
-    for(var items in cartData){    
+  for(var items in cartData) {
+    if(cartData.hasOwnProperty(items)){
+      var totalPrice = 0;       
       var newli = document.createElement("li");
       newli.classList.add("cart__list-item");    
       //newli.id = items;
       newli.setAttribute("data-id", items);
 
       var product_name = cartData[items][0];
-      var price = cartData[items][1];
-      var quantity = cartData[items][2];   
-      var img = cartData[items][3];
-      var color = cartData[items][4];
-      
+      var price        = cartData[items][1];
+      var quantity     = cartData[items][2];   
+      var img          = cartData[items][3];
+      var color        = cartData[items][4];
       var price_num = Number (price.substring(1) * quantity);   //обрезаем доллар substring, переводим в number и умножаем на количество
       totalPrice += price_num;   
       
       newli.innerHTML = writeTextli(product_name, price, color, quantity, img);      
       // console.log(newli);
-      cart_ul.appendChild(newli);
+      cart_ul.appendChild(newli);        
       
-      //Удаляем конкретный товар из корзины по крестику
+      //Добавляем обработку события - удаление конкретного товара из корзины по крестику
       document.querySelectorAll(".cart__list-close").forEach(item => {
         item.addEventListener('click', function (e) {
           var index = this.closest('li').getAttribute("data-id");
@@ -129,16 +120,24 @@ function loadCartItem ()
           loadCartItem ();
         });
       })
-    }
-    cartText.style.display = "none";
-    
-    // console.log (totalPrice);
-    cartTotal.innerHTML = "ИТОГО $" + totalPrice;
-  } else {
-      // если в корзине пусто, то сигнализируем об этом
-      cartText.innerHTML = 'Корзина пустая';
-      shippingForm.style.display = "none";
+      cartText.style.display = "none";
+      cartTotal.innerHTML = "ИТОГО $" + totalPrice;
+    } 
+  } 
+
+  var length = 0;
+  for(var items in cartData) {
+    length++
   }
+  console.log(length)
+  
+  if (length=='0'){
+    // если в корзине пусто, то сигнализируем об этом
+    cartText.style.display = "block"; 
+    cartText.innerHTML = 'Корзина пустая';
+    shippingForm.style.display = "none";
+  }
+    
 }
 
 //Функция создает текст верстки для списка товаров в корзине
@@ -303,5 +302,7 @@ function clearUl (ul) {
   while (ul.firstChild) {
     ul.removeChild(ul.firstChild);
   }
+  
+  //localStorage.removeItem('cart');
   // ul.innerHTML = '';
 }
