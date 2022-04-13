@@ -55,7 +55,7 @@ document.addEventListener('DOMContentLoaded', function () {
       getPhoneStr[0].style.border = '3px solid red';
     } else {
       getPhoneStr[0].style.border = '1px solid black';
-      console.log("tyt");
+      // console.log("tyt");
     }
   })
 
@@ -80,6 +80,23 @@ document.addEventListener('DOMContentLoaded', function () {
       OpenWatsappModal (this, getSendText().get("whatsapp"))      
     } 
   });
+
+  document.querySelectorAll('.cart__list-qty').forEach(item => {
+    item.oninput = function (e) {
+      var qty = item.value;
+      var id = item.closest('li').getAttribute("data-id");
+      cartData[id][2] = qty;   //2 - qty
+      setCartData(cartData);
+    }
+    item.addEventListener('focusout', function (e) {
+      if (this.value == '')
+        this.value = 1;
+        var qty = item.value;
+        var id = item.closest('li').getAttribute("data-id");
+        cartData[id][2] = qty;
+        setCartData(cartData);
+    })
+  })
 
 
 });
@@ -129,7 +146,7 @@ function loadCartItem ()
   for(var items in cartData) {
     length++
   }
-  console.log(length)
+  // console.log(length)
   
   if (length=='0'){
     // если в корзине пусто, то сигнализируем об этом
@@ -152,7 +169,7 @@ function writeTextli (name, price, color, quantity, img){
     html_text +=      `<p class='cart__list-text'>Color: ${color}</p>`;                    
     html_text +=      "<div class='cart__list-subwrapper'>"
     html_text +=          "<label class='cart__list-text'>Quantity:</label>"
-    html_text +=          "<input type='text' class='cart__list-qty' placeholder='" + quantity+ "'>"
+    html_text +=          "<input type='number' min='1' step='1' class='cart__list-qty' value='" + quantity+ "'>"
     html_text +=      "</div>"
     html_text +="</div>";
 

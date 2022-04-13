@@ -235,13 +235,16 @@ ol, ul {
   background-color: var(--dark-black-color);
 }
 
+.header__logo{
+  text-align: center;
+}
+
+
 .header__logo_text{
-    position: absolute;
-    top: 8px;
-    color: white;
-    letter-spacing: 0.1em;
-    font-size: 20px;
-    margin-left: 20%;
+  letter-spacing: 0.1em;
+  font-size: 20px;
+  text-align: center;
+  color: white;
 }
 
 .header__logo_text_cat.black{
@@ -275,6 +278,9 @@ ol, ul {
 
 .header__icon {
   fill: #E8E8E8;
+}
+.header__icon.black{
+  fill: var(--dark-black-color);
 }
 
 
@@ -502,7 +508,7 @@ ol, ul {
   
 .featured__heading {
   margin-top: 48px;
-  font-size: 25px;
+  font-size: 20px;
   line-height: 36px;
   font-weight: 600;
   font-style: normal;
@@ -1151,7 +1157,7 @@ catalog__pagination-item, .catalog__pagination-active, .catalog__pagination-link
   }
 
   .catalog__heading {
-    margin-top: 50px;
+    margin-top: 90px;
     font-size: 25px;
     line-height: 36px;
     font-weight: 400;
@@ -1964,7 +1970,7 @@ catalog__pagination-item, .catalog__pagination-active, .catalog__pagination-link
 
 @media (max-width: 768px) {
   .cart__wrapper {
-    padding: 58px 0 64px 0;
+    padding: 24px 0 64px 0;
   }
 }
 
@@ -2136,7 +2142,7 @@ catalog__pagination-item, .catalog__pagination-active, .catalog__pagination-link
   padding: 0 0 0 8px;
 }
 
-.cart__list-qty ::-webkit-input-placeholder {
+.cart__list-qty { /* ::-webkit-input-placeholder { */
   color: #B1B1B1;
   font-size: 10px;
   line-height: 12px;
@@ -2144,26 +2150,26 @@ catalog__pagination-item, .catalog__pagination-active, .catalog__pagination-link
   font-style: normal;
 }
 
-.cart__list-qty ::-moz-placeholder {
+.cart__list-qty { /* ::-moz-placeholder {*/
   /* Firefox 19+ */
-  color: #B1B1B1;
+  color: black;
   font-size: 10px;
   line-height: 12px;
   font-weight: 300;
   font-style: normal;
 }
 
-.cart__list-qty :-ms-input-placeholder {
-  color: #B1B1B1;
+.cart__list-qty { /*:-ms-input-placeholder {*/
+  color: black;
   font-size: 10px;
   line-height: 12px;
   font-weight: 300;
   font-style: normal;
 }
 
-.cart__list-qty :-moz-placeholder {
+.cart__list-qty { /*:-moz-placeholder {*/
   /* Firefox 18- */
-  color: #B1B1B1;
+  color: black;
   font-size: 10px;
   line-height: 12px;
   font-weight: 300;
@@ -2487,7 +2493,7 @@ catalog__pagination-item, .catalog__pagination-active, .catalog__pagination-link
 
 .cart__heading {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 90px;
   font-size: 25px;
   line-height: 36px;
   font-weight: 400;

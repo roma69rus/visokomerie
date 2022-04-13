@@ -106,7 +106,7 @@
                     </div>
                   </div>
 
-                <div class="product__addtocart" data-id="6" data-img="/img/6_beige_palaco/1_beige_palaco.jpg">
+                <div class="product__addtocart js-open-modal" data-modal="2" data-id="6" data-img="/img/6_beige_palaco/1_beige_palaco.jpg">
                     <svg width="32" height="29" viewBox="0 0 32 29" xmlns="http://www.w3.org/2000/svg"
                         class="product__addtocart_btnimg">
                         <path
@@ -114,6 +114,15 @@
                     </svg>
                     <div class="product__addtocart_btntxt">Add to cart</div>
                 </div>
+                <!-- Модальное окно Товар добавлен в корзину-->
+                <div class="modal" data-modal="2">
+                    <!--   Svg иконка для закрытия окна  -->
+                    <svg class="modal__cross js-modal-close" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M23.954 21.03l-9.184-9.095 9.092-9.174-2.832-2.807-9.09 9.179-9.176-9.088-2.81 2.81 9.186 9.105-9.095 9.184 2.81 2.81 9.112-9.192 9.18 9.1z"/></svg>
+                    <p class="modal__title">Заказ добавлен в корзину</p>
+                    <button class="modal__btn site-btn" onclick="window.location.href = '/cart.html';">Перейти в корзину</button>
+                </div>
+
+
                 <div class="sizes-quantity">                    
                         <span class="text-dgray">Размеры </span>
                         <a class="text-dgray js-open-modal" data-modal="1" href="#">Таблица размеров</a>                   
