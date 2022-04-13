@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
       })
     } else {
-      //sendEmail(getSendText().get("email"), getPhoneStr[0].value);
+      sendEmail(getSendText().get("email"), getPhoneStr[0].value);
       OpenWatsappModal (this, getSendText().get("whatsapp"))      
     } 
   });
