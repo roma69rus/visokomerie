@@ -46,34 +46,7 @@
         height: 731px;
     }
 
-    .about__text {
-        max-width: 607px;
-    }
-
-    .about-content__left {
-        min-height: 648px;
-    }
-
-    .about-left__text {
-        margin: 0;
-        max-width: 366px;
-    }
-
-    .about-left__inner {
-        padding: 35px 39px 33px 41px;
-    }
-
-    .about-right__item {
-        padding: 37px 43px 34px 298px;
-        padding-left: 170px;
-        background-size: 114px 99px;
-        background-position: left 39px top 68px;
-    }
-
-    .about-right__item:first-child {
-        background-position: left 39px top 67px;
-    }
-
+    
     .work__list {
         margin-bottom: 42px;
         justify-content: space-between;

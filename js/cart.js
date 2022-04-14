@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
       })
     } else {
-      sendEmail(getSendText().get("email"), getPhoneStr[0].value);
+      //sendEmail(getSendText().get("email"), getPhoneStr[0].value);
       OpenWatsappModal (this, getSendText().get("whatsapp"))      
     } 
   });
@@ -106,9 +106,10 @@ function loadCartItem ()
   cartData = getCartData();
 
   //ЗАПОЛНЯЕМ СТРАНИЦУ ТОВАРАМИ
+  var totalPrice = 0; 
   for(var items in cartData) {
     if(cartData.hasOwnProperty(items)){
-      var totalPrice = 0;       
+            
       var newli = document.createElement("li");
       newli.classList.add("cart__list-item");    
       //newli.id = items;
@@ -119,7 +120,7 @@ function loadCartItem ()
       var quantity     = cartData[items][2];   
       var img          = cartData[items][3];
       var color        = cartData[items][4];
-      var price_num = Number (price.substring(1) * quantity);   //обрезаем доллар substring, переводим в number и умножаем на количество
+      var price_num = Number (price.substring(0) * quantity);   //обрезаем доллар substring, переводим в number и умножаем на количество $100 -> 100
       totalPrice += price_num;   
       
       newli.innerHTML = writeTextli(product_name, price, color, quantity, img);      

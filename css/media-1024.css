@@ -17,14 +17,6 @@
         letter-spacing: 0.5em;
       }
 
-    .about-content__left {
-        max-width: 100%;
-        margin-right: 0;
-    }
-    
-    .about-content__right {
-        max-width: 100%;
-    }
     
     .footer__text {
         display: none;
@@ -171,60 +163,23 @@
 
     .hero-content__text {
         font-size: 20px;
-        line-height: 24px;
         max-width: 660px;
         margin-bottom: 60px;
     }
 
-    .about {
+    /* .about {
         padding-top: 86px;
-    }
+    } */
 
     .about__heading {
         margin-bottom: 9px;
     }
 
-    .about__text {
-        line-height: 32px;
+    /* .about__text {
         margin-bottom: 60px;
-    }
+    } */
 
-    .about-content__left {
-        min-height: 640px;
-        width: 100%;
-        margin-bottom: 32px;
-    }
-
-    .about-left__inner {
-        width: 100%;
-        padding: 35px 49px 33px 54px;
-    }
-
-    .about-left__text {
-        max-width: 454px;
-        margin-right: 0;
-    }
     
-    .about-content__right {
-        width: 100%;
-    }
-
-    .about-right__title {
-        margin-bottom: 5px;
-    }
-
-    .about-right__text {
-        max-width: 421px;
-    }
-
-    .about-right__item {
-        background-position: left 76px top 65px;
-        padding: 67px 148px 64px 317px;
-    }
-
-    .about-right__item:first-child {
-        background-position: left 76px top 64px;
-    }
 
     .work {
         padding-top: 66px;

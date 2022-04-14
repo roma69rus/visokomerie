@@ -127,20 +127,16 @@
     }
 
     .nav__item:not(:last-child) {
-        margin-bottom: 32px;
+        margin-bottom: 28px;
+        margin-right: 20px;
     }
 
-    .about-left__inner {
-        flex-direction: column;
-    }
 
     .work__item:not(:last-child) {
         margin-right: 0;
     }
 
-    .about-right__item {
-        padding: 0;
-    }
+
 
     
     .container.hero__container
@@ -383,7 +379,7 @@
         left: 0;
         max-width: 475px;
         width: 100%;
-        height: 520px;
+        height: 680px;
          
     }
 
