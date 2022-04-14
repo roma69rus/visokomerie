@@ -4,7 +4,7 @@
         padding-bottom: 30px;
         padding-left: 0.5em;
         letter-spacing: 0.5em;
-        font-size: 100px;
+        font-size: 70px;
     }
     
     .app__sub {
@@ -79,17 +79,17 @@
     }
 
     .app__logo{
-        padding-bottom: 30px;
+        padding-bottom: 18px;
         padding-left: 0.5em;
-        letter-spacing: 0.5em;
-        font-size: 50px;
+        letter-spacing: 0.15em;
+        font-size: 25px;
     }
     
     .app__sub {
         font-weight: 100;
         padding-left: 0.4em;
-        letter-spacing: 0.4em;
-        font-size: 23px;
+        letter-spacing: 0.1em;
+        font-size: 15px;
         padding-bottom: 5px;
     }
 
@@ -218,71 +218,6 @@
         width: 10px;
     }
 
-    .about {
-        padding-top: 63px;
-    }
-
-    .about__heading {
-        font-size: 24px;
-        margin-bottom: 20px;
-    }
-
-    .about__text {
-        font-size: 14px;
-        line-height: 28px;
-        margin-bottom: 97px;
-    }
-
-    .about-content__left {
-        background-position: top;
-        background-size: 290px 200px;
-        min-height: auto;
-        padding-top: 209px;
-    }
-
-    .about-left__inner {
-        background: none;
-        padding: 0;
-    }
-
-    .about-left__text {
-        font-size: 14px;
-        line-height: 28px;
-        font-weight: 400;
-        max-width: 100%;
-        margin-bottom: 38px;
-        color: var(--black-color);
-    }
-
-    .about-left__btn {
-        font-size: 12px;
-        color: var(--orange-color);
-        align-self: start;
-        padding: 11px 45px;
-    }
-
-    .about-right__item {
-        background-size: 56px 49px;
-        background-position: left 0 top 0;
-        border: 1px solid var(--grey-color);
-        padding-top: 63px;
-    }
-
-    .about-right__item:first-child {
-        background-size: 61px 51px;
-        background-position: left 0 top 0;
-    }
-
-    .about-right__title {
-        font-size: 18px;
-        font-weight: 500;
-        line-height: 21px;
-    }
-
-    .about-right__text {
-        font-size: 16px;
-        line-height: 28px;
-    }
 
     .work {
         padding-top: 42px;
