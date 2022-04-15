@@ -53,5 +53,26 @@ document.addEventListener('DOMContentLoaded', function () {
     var formating = item.innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); 
     item.innerHTML = formating;
   })
+
+  
+
     
+});
+document.addEventListener('scroll', function(e) {
+  var menuOp = document.querySelector('.header__container-opacity');
+    if (scrollY  >= 600) {      
+        
+        var pos = scrollY/2-600/2-49;
+        menuOp.style.background = "rgba(0,0,0, 0.5)";
+        if (scrollY <= (600+49*2)){
+            menuOp.style.top = `${pos}px`
+        }
+        if (scrollY >= (600+49*2)){
+            menuOp.style.top = `0px`
+        }
+        
+    } else {
+        menuOp.style.background = "rgba(0,0,0, 0)";
+            
+    }
 });

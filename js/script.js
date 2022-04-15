@@ -50,13 +50,102 @@ document.querySelectorAll(".catalog__item_price").forEach(item => {
     item.innerHTML = formating;
 })
 
-var menu = document.querySelector('.header__container');
-console.log(menu)
+var menuOpacity = document.querySelector('.header__container-opacity');
+console.log(menuOpacity)
   document.addEventListener('scroll', function(e) {
-    // var top = this.scrollTop();
-    if ( scrollY  >= 450 ) {
-      menu.style.background = "rgba(1,1,1, 0.5)";//    (background:'green');
-    } else{
-      menu.style.background = "rgba(1,1,1, 0)";
+    if(window.location.toString().indexOf('index.htm')>0) {    
+        if ( scrollY  >= 460 ) {
+            var pos = scrollY/2-460/2-49;
+            console.log(pos);
+            menuOpacity.style.background = "rgba(0,0,0, 0.5)";
+            if (scrollY <= (460+49*2)){
+                menuOpacity.style.top = `${pos}px`
+            }
+            if (scrollY >= (460+49*2)){
+                menuOpacity.style.top = `0px`
+            }
+            
+            } else{
+                menuOpacity.style.background = "rgba(0,0,0, 0)";
+            }
     }
-  });
+
+    if(window.location.toString().indexOf('catalog.htm')>0) {    
+        if ( scrollY  >= 140 ) {
+            var pos = scrollY/2-140/2-49;
+            console.log(pos);
+            menuOpacity.style.background = "rgba(255,255,255, 0.5)";
+            if (scrollY <= (140+49*2)){
+                menuOpacity.style.top = `${pos}px`
+            }
+            if (scrollY >= (140+49*2)){
+                menuOpacity.style.top = `0px`
+            }
+            
+            } else{
+                menuOpacity.style.background = "rgba(255,255,255, 0)";
+            }
+    }
+
+    if(window.location.toString().indexOf('delivery.htm')>0) {    
+        var header = document.querySelector('.header__logo_text');
+        if ( scrollY  >= 10 ) {
+            var pos = scrollY/2-10/2-49;
+            console.log(pos);
+            menuOpacity.style.background = "rgba(0,0,0, 0.5)";
+            if (scrollY <= (10+49*2)){
+                menuOpacity.style.top = `${pos}px`
+                header.classList.add("black");
+            }
+            if (scrollY >= (10+49*2)){
+                menuOpacity.style.top = `0px`
+                header.classList.remove("black");
+            }
+            
+            } else{
+                menuOpacity.style.background = "rgba(0,0,0, 0)";
+                
+            }
+    }
+    if(window.location.toString().indexOf('about.htm')>0) {    
+        var header = document.querySelector('.header__logo_text');
+        if ( scrollY  >= 10 ) {
+            var pos = scrollY/2-10/2-49;
+            console.log(pos);
+            menuOpacity.style.background = "rgba(0,0,0, 0.5)";
+            if (scrollY <= (10+49*2)){
+                menuOpacity.style.top = `${pos}px`
+                header.classList.add("black");
+            }
+            if (scrollY >= (10+49*2)){
+                menuOpacity.style.top = `0px`
+                header.classList.remove("black");
+            }
+            
+            } else{
+                menuOpacity.style.background = "rgba(0,0,0, 0)";
+                
+            }
+    }
+    if(window.location.toString().indexOf('cart.htm')>0) {    
+        var header = document.querySelector('.header__logo_text');
+        if ( scrollY  >= 10 ) {
+            var pos = scrollY/2-10/2-49;
+            console.log(pos);
+            menuOpacity.style.background = "rgba(0,0,0, 0.5)";
+            if (scrollY <= (10+49*2)){
+                menuOpacity.style.top = `${pos}px`
+                header.classList.add("black");
+            }
+            if (scrollY >= (10+49*2)){
+                menuOpacity.style.top = `0px`
+                header.classList.remove("black");
+            }
+            
+            } else{
+                menuOpacity.style.background = "rgba(0,0,0, 0)";
+                
+            }
+    }
+});
+
