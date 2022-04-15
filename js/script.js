@@ -38,3 +38,25 @@ document.addEventListener('DOMContentLoaded', function () {
         menuBurger.classList.remove('burger-active');
     });
 });
+
+document.querySelectorAll(".featured__item_price").forEach(item => {
+    var formating = item.innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); 
+    item.innerHTML = formating;
+})
+
+
+document.querySelectorAll(".catalog__item_price").forEach(item => {
+    var formating = item.innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); 
+    item.innerHTML = formating;
+})
+
+var menu = document.querySelector('.header__container');
+console.log(menu)
+  document.addEventListener('scroll', function(e) {
+    // var top = this.scrollTop();
+    if ( scrollY  >= 450 ) {
+      menu.style.background = "rgba(1,1,1, 0.5)";//    (background:'green');
+    } else{
+      menu.style.background = "rgba(1,1,1, 0)";
+    }
+  });

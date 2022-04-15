@@ -192,7 +192,8 @@
 
     .hero-content__btn {
         font-size: 13px;
-        padding: 13px 53px 9px 53px;
+        width: 175px;
+        padding: 10px 45px 8px 45px;
         text-align: center;
         /* margin-top: 40%; */
         z-index: 100;
@@ -346,6 +347,9 @@
         flex-direction: column;
         /* border-top: 1px solid #595959; */
     }
+    .footer__list{
+        margin-bottom: 50px;
+    }
 
     .footer__logo {
         text-align: center;
@@ -358,12 +362,13 @@
 
     .footer__social {
         align-self: left;
+        /* margin-bottom: 10px; */
     }
 
     .footer__icon {
-        width: 40px;
-        height: 40px;
-        background-size: 40px;
+        width: 48px;
+        height: 48px;
+        /* background-size: 40px; */
     }
 
     .footer__icon:not(:last-child) {

@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function () {
         parentBox = this.parentNode, // родительский элемент кнопки "Добавить в корзину"
         itemId = this.getAttribute('data-id'),                              // ID товара
         itemTitle = parentBox.querySelector('.product__heading').innerHTML, // название товара
-        itemPrice = parentBox.querySelector('.product__price').innerHTML,   // стоимость товара
+        itemPrice = parentBox.querySelector('.product__price').innerHTML.replace(/\s/g, ''),   // стоимость товара
         itemImg = this.getAttribute('data-img'),                            // фото товара      
         itemColor = parentBox.querySelector('.product__text').innerHTML;    // цвет
     if(cartData.hasOwnProperty(itemId)){     // если такой товар уже в корзине, то добавляем +1 к его количеству
@@ -48,5 +48,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     return false;
   }
+
+  document.querySelectorAll(".product__price").forEach(item => {
+    var formating = item.innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); 
+    item.innerHTML = formating;
+  })
     
 });

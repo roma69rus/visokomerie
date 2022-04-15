@@ -165,7 +165,7 @@ ol, ul {
 .header {
     background-color: black;
     width: 100%;
-    box-shadow: 0px 5px 40px rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 5px 40px rgba(0, 0, 0, 1);
     /* Закрепление шапки, удалить ниже */
     position: fixed;
     z-index: 100;
@@ -1199,7 +1199,7 @@ ol, ul {
   text-align: center;
   font-size: 16px;
   line-height: 19px;
-  font-weight: 600;
+  font-weight: 400;
   font-style: normal;
   /* color: var(--orange-color); */
   color: var(--dark-black-color);
@@ -2195,6 +2195,7 @@ ol, ul {
 }
 
 .cart__total_text_wrapper {
+  width: 100%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -2205,7 +2206,7 @@ ol, ul {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
-  margin: 40px 30px 0 0;
+  margin: 40px 0px 0 0;
 }
 
 .cart__subtotal_text {
@@ -2225,6 +2226,7 @@ ol, ul {
   color: #222224;
   text-transform: uppercase;
   margin: 12px 0 0 0;
+  align-self: center;
 }
 
 .cart__total_checkout_wrapper {
@@ -2298,6 +2300,13 @@ ol, ul {
 
 }
   
+.condition{
+  font-size: 10px;
+  text-align: center;
+  padding-top: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
 
 /* ----------------------------------ABOUT-----------------------------------  */
 
@@ -2351,10 +2360,11 @@ ol, ul {
   line-height: 1.2;
   text-align: center;
   margin-top: 25px;
-  margin-bottom: 30px;
+  margin-bottom: 20px;
 }
 
 .delivery__text {
+  margin-top: 34px;
   font-size:14px;
   text-transform: uppercase;
   font-weight: bold;
@@ -2369,6 +2379,18 @@ ol, ul {
   color: var(--dark-black-color);
   line-height: 1.2;
   text-align: left;
-  margin-left: 40px;
+  /* margin-left: 40px; */
   margin-right: 30px;
+  text-indent: -1.7em; 
+  margin-bottom: 15px;
+}
+
+.delivery__li-text::before {
+  content: '\25ba'; /* Добавляем маркер в шестнадцатеричном формате*/
+  padding-right: 5px; /* Расстояние от маркеров до текста */
+  color: black; /* Маркеры красного цвета */
+ }
+
+.delivery__ul{
+  padding-left: 0;
 }

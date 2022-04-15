@@ -98,6 +98,11 @@ document.addEventListener('DOMContentLoaded', function () {
     })
   })
 
+  //Добавление пробела в цену
+  document.querySelectorAll(".cart__price").forEach(item => {
+    var formating = item.innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); 
+    item.innerHTML = formating;
+  })
 
 });
 
@@ -139,7 +144,7 @@ function loadCartItem ()
         });
       })
       cartText.style.display = "none";
-      cartTotal.innerHTML = "ИТОГО $" + totalPrice;
+      cartTotal.innerHTML = "ИТОГО ₽ " + totalPrice.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");;
     } 
   } 
 
@@ -166,7 +171,7 @@ function writeTextli (name, price, color, quantity, img){
     html_text += "<div class='cart__list-wrapper'>";
     html_text +=      `<h3 class='cart__list-heading'>${name}</h3>`;
     html_text +=      '<div class="cart__list-close"></div>';
-    html_text +=      `<p class='cart__list-text'>Price: ${price}</p>`;
+    html_text +=      `<p class='cart__list-text'>Price: <span class='cart__price'>${price}</span></p>`;
     html_text +=      `<p class='cart__list-text'>Color: ${color}</p>`;                    
     html_text +=      "<div class='cart__list-subwrapper'>"
     html_text +=          "<label class='cart__list-text'>Quantity:</label>"
@@ -324,3 +329,4 @@ function clearUl (ul) {
   //localStorage.removeItem('cart');
   // ul.innerHTML = '';
 }
+
