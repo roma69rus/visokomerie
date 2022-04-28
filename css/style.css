@@ -99,6 +99,7 @@ ol, ul {
     padding: 0;
 }
 
+
 .swiper-pagination-bullet-active {
     background-color: var(--white-color);
 }
