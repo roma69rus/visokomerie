@@ -1,5 +1,18 @@
 /* preloader + задержка */ 
-window.onload = function () {
+// window.onload = function () {
+// document.addEventListener('DOMContentLoaded', function () {
+//     setTimeout(() => {
+//         document.body.classList.add('loaded_hiding');
+//         window.setTimeout(function () {
+//             document.body.classList.add('loaded');
+//             document.body.classList.remove('loaded_hiding');
+//         }, 800);
+//     }, 800);
+
+// } 
+
+document.addEventListener('DOMContentLoaded', function () {
+    /* preloader + задержка */ 
     setTimeout(() => {
         document.body.classList.add('loaded_hiding');
         window.setTimeout(function () {
@@ -7,10 +20,7 @@ window.onload = function () {
             document.body.classList.remove('loaded_hiding');
         }, 800);
     }, 800);
-
-}
-
-document.addEventListener('DOMContentLoaded', function () {
+   
     //SLIDER
     var swiper = new Swiper('.swiper-container', {  //объект слайдера
         autoplay: {
@@ -29,15 +39,25 @@ document.addEventListener('DOMContentLoaded', function () {
     const burgerBtn = document.querySelector('.burger');
     const menuClose = document.querySelector('.menu-close');
     const menuBurger = document.querySelector('.nav');
+    var overlay = document.querySelector('#overlay-menu');
+    console.log(overlay)
 
     burgerBtn.addEventListener('click', () => {
         menuBurger.classList.add('burger-active');
+        overlay.classList.add('active');
     });
 
     menuClose.addEventListener('click', () => {
         menuBurger.classList.remove('burger-active');
+        overlay.classList.remove('active');     //и у overlay
     });
-});
+
+    overlay.addEventListener('click', function () {
+        menuBurger.classList.remove('burger-active');
+        this.classList.remove('active');                                 
+    });
+})
+
 
 document.querySelectorAll(".featured__item_price").forEach(item => {
     var formating = item.innerHTML.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " "); 
@@ -56,7 +76,23 @@ console.log(menuOpacity)
     if(window.location.toString().indexOf('index.htm')>0) {    
         if ( scrollY  >= 460 ) {
             var pos = scrollY/2-460/2-49;
-            console.log(pos);
+            // console.log(pos);
+            menuOpacity.style.background = "rgba(0,0,0, 0.5)";
+            if (scrollY <= (460+49*2)){
+                menuOpacity.style.top = `${pos}px`
+            }
+            if (scrollY >= (460+49*2)){
+                menuOpacity.style.top = `0px`
+            }
+            
+            } else{
+                menuOpacity.style.background = "rgba(0,0,0, 0)";
+            }
+    }
+    if(window.location.toString().indexOf('/')>0) {    
+        if ( scrollY  >= 460 ) {
+            var pos = scrollY/2-460/2-49;
+            // console.log(pos);
             menuOpacity.style.background = "rgba(0,0,0, 0.5)";
             if (scrollY <= (460+49*2)){
                 menuOpacity.style.top = `${pos}px`
@@ -73,7 +109,7 @@ console.log(menuOpacity)
     if(window.location.toString().indexOf('catalog.htm')>0) {    
         if ( scrollY  >= 140 ) {
             var pos = scrollY/2-140/2-49;
-            console.log(pos);
+            // console.log(pos);
             menuOpacity.style.background = "rgba(255,255,255, 0.5)";
             if (scrollY <= (140+49*2)){
                 menuOpacity.style.top = `${pos}px`
@@ -91,7 +127,7 @@ console.log(menuOpacity)
         var header = document.querySelector('.header__logo_text');
         if ( scrollY  >= 10 ) {
             var pos = scrollY/2-10/2-49;
-            console.log(pos);
+            // console.log(pos);
             menuOpacity.style.background = "rgba(0,0,0, 0.5)";
             if (scrollY <= (10+49*2)){
                 menuOpacity.style.top = `${pos}px`
@@ -111,7 +147,7 @@ console.log(menuOpacity)
         var header = document.querySelector('.header__logo_text');
         if ( scrollY  >= 10 ) {
             var pos = scrollY/2-10/2-49;
-            console.log(pos);
+            // console.log(pos);
             menuOpacity.style.background = "rgba(0,0,0, 0.5)";
             if (scrollY <= (10+49*2)){
                 menuOpacity.style.top = `${pos}px`
@@ -131,7 +167,7 @@ console.log(menuOpacity)
         var header = document.querySelector('.header__logo_text');
         if ( scrollY  >= 10 ) {
             var pos = scrollY/2-10/2-49;
-            console.log(pos);
+            // console.log(pos);
             menuOpacity.style.background = "rgba(0,0,0, 0.5)";
             if (scrollY <= (10+49*2)){
                 menuOpacity.style.top = `${pos}px`
