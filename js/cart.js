@@ -12,6 +12,7 @@ var cartTotal = document.getElementById('cart__grandtotal_text'); //ИТОГО
 
 var shippingForm = document.getElementById('cart__shipping_wrapper'); //форма обратной связи (скрыть, показать)
 
+
 var getPhoneStr = document.querySelectorAll('.phone');     //инпут номера телефона
 var getNameStr = document.getElementById('clientname'); //инпут имени
 
@@ -42,6 +43,9 @@ document.addEventListener('DOMContentLoaded', function () {
     cartText.style.display = "block"; 
     cartText.innerHTML = 'Корзина пустая';
     shippingForm.style.display = "none";
+    var shippingFormTxt = document.getElementById('cart__text-whatsapp');
+    console.log(shippingFormTxt)
+    shippingFormTxt.style.display = "none";
     // cartText += "Корзина пуста";    
     // cartCont.innerHTML = 'Корзина очишена.';
   });
