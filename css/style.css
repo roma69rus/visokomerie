@@ -1567,6 +1567,7 @@ ol, ul {
   font-size: 13px;
   background-color: #eeeeee;
   line-height: normal;
+  margin-bottom: 10px;
 }
 
 .info__switch:checked~.info__body-text {
@@ -1711,7 +1712,7 @@ ol, ul {
 }
 
 .modal__img-wrapper{
-  width: 350px;
+  width: 100%;
   height: auto;
   display: flex;
 }
