@@ -39,12 +39,10 @@ document.addEventListener('DOMContentLoaded', function () {
     clearUl(cart_ul);
     localStorage.removeItem('cart');
     cartText = document.getElementById('cart__text');
-
     cartText.style.display = "block"; 
     cartText.innerHTML = 'Корзина пустая';
     shippingForm.style.display = "none";
     var shippingFormTxt = document.getElementById('cart__text-whatsapp');
-    console.log(shippingFormTxt)
     shippingFormTxt.style.display = "none";
     // cartText += "Корзина пуста";    
     // cartCont.innerHTML = 'Корзина очишена.';
@@ -80,8 +78,8 @@ document.addEventListener('DOMContentLoaded', function () {
         e.preventDefault();
       })
     } else {
-      //sendEmail(getSendText().get("email"), getPhoneStr[0].value);
-      OpenWatsappModal (this, getSendText().get("whatsapp"))      
+      //sendEmail(getSendText().get("email"), getPhoneStr[0].value);     
+      OpenWatsappModal (this, getSendText().get("whatsapp"))
     } 
   });
 
@@ -246,9 +244,6 @@ function getSendText() {
   return arr;
 }
 
-
-
-
 //валидация номера телефона
 function ValidPhone(phoneNumber) {
   var re = /[^\w]{1}7\ \([\d]{3}\) [\d]{3}-[\d]{2}-[\d]{2}$/; //https://regexr.com/
@@ -285,7 +280,45 @@ function OpenWatsappModal (btn, whatsappTxt)
     console.log(txt);
     console.log(whatsappTxt);
     console.log(getNameStr);
-  })
+
+
+    cartText = document.getElementById('cart__text');
+    cartText.style.display = "block"; 
+    cartText.innerHTML = 'Заказ оформлен';
+    shippingForm.style.display = "none";
+    var shippingFormTxt = document.getElementById('cart__text-whatsapp');
+    shippingFormTxt.style.display = "none";
+    clearUl(cart_ul);
+    localStorage.removeItem('cart');
+  });
+
+  overlay.addEventListener('click', function () {
+    cartText = document.getElementById('cart__text');
+    cartText.style.display = "block"; 
+    cartText.innerHTML = 'Заказ оформлен';
+    shippingForm.style.display = "none";
+    var shippingFormTxt = document.getElementById('cart__text-whatsapp');
+    shippingFormTxt.style.display = "none";
+    clearUl(cart_ul);
+    localStorage.removeItem('cart'); 
+  });
+  
+  var closeButtons = document.querySelectorAll('.js-modal-close');
+  closeButtons.forEach(function (item) {
+    item.addEventListener('click', function (e) {
+      cartText = document.getElementById('cart__text');
+      cartText.style.display = "block"; 
+      cartText.innerHTML = 'Заказ оформлен';
+      shippingForm.style.display = "none";
+      var shippingFormTxt = document.getElementById('cart__text-whatsapp');
+      shippingFormTxt.style.display = "none";
+      clearUl(cart_ul);
+      localStorage.removeItem('cart');
+    });
+
+}); // end foreach
+  
+  
 }
 
 //Функция установки маски на поле заполнения телефона
