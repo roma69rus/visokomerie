@@ -6,12 +6,13 @@
 
     .header__container{
         z-index: 999;
-        position: absolute;
+        position: absolute;        
         top: 0;
         left: 0;
         width: 100%;
         height: 49px;
         padding-top: 5px;
+        background-color: rgba(0,0,0, 0.5); 
     }
     .header__container-opacity{
         z-index: 50;
@@ -33,13 +34,16 @@
     }
 
     .hero-content__btn {
-        margin-top: 50%;
+        margin-top: 40%;
         font-size: 13px;
         width: 175px;
         padding: 10px 27px 8px 27px;
         text-align: center;
         z-index: 100;
-        /* margin-left: 50%; */
+    }
+
+    .header__button{
+        margin-right: 0;
     }
 
     .swiper-container-horizontal>.swiper-pagination-bullets, .swiper-pagination-custom, .swiper-pagination-fraction {
@@ -56,27 +60,29 @@
         padding-bottom: 30px;
         padding-left: 0.5em;
         letter-spacing: 0.5em;
-        font-size: 130px;
+        font-size: 40px;
     }
     
     .app__sub {
-        padding-left: 0.7em;
-        letter-spacing: 0.7em;
-        font-size: 45px;
+        padding-left: 0.5em;
+        letter-spacing: 0.5em;
+        font-size: 30px;
     }
 
     .app__glitch {
-        font-size: 40px;
-        letter-spacing: 0.5em;
+        font-size: 35px;
+        letter-spacing: 0.3em;
     }
     
     
-    .header__container {
-        height: 49px;
-    }
+
 
     .hero {
-        height: 1440px;
+        height: 720px;
+        position: relative;
+        display: flex;
+        top: 0;
+        width: 100%;
     }
 
     .swiper-slide {
@@ -199,5 +205,92 @@
         font-size: 15px;
     }
 
+    .catalog__item {
+        max-width: 360px;
+        width: 47%;
+    }
+    
+    .catalog__item:first-of-type {
+        width: 100%;  
+        max-width: 360px;  
+        height: 100%;
+    }
+
+    .catalog__item_img {      
+        /* width: 190px; */
+        max-width: 360px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .catalog__item_imgwrapper { 
+        height: 100%;    
+    }
+    .container
+    {
+        padding: 0 30px;
+    }
+
+    .header__logo_text_cat.black{
+        color: white;
+    }
+    .catalog__heading {
+        align-self: flex-start;
+        margin-top: 90px;
+        font-size: 25px;
+        line-height: 36px;
+        font-weight: 400;
+        font-style: normal;
+        color: var(--dark-black-color);
+        margin-bottom: 10px;
+        padding-left: 9px;
+      
+    }
+      
+    .catalog__text {
+        align-self: flex-start;
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: 400;
+        font-style: normal;
+        color: #9F9F9F;
+        padding-left: 9px;
+        margin-top: 0;
+        margin-bottom: 6px;
+      
+    }
+      
+    .catalog__heading.shirt{
+        margin-top: 10px;
+    }
+    .cart {        
+        position: relative;
+        top: 0px;
+    }
+    .cart__text-whatsapp{
+        font-size: 16px;
+        line-height: 18px;
+    }
+    .about {
+        position: relative;
+        top: 0px;
+    }
+    .about__heading {
+        font-size: 16px;
+      }
+      
+      .about__text {
+        font-size: 14px;
+      }
+      .delivery__header {
+        font-size:18px;
+      }
+      
+      .delivery__text {        
+        font-size:14px;        
+      }
+      .delivery__li-text{
+        font-size: 12px;
+      }
 
 }

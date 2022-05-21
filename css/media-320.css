@@ -1,5 +1,41 @@
 @media (max-width: 590px) {
     
+    .catalog__heading {
+        align-self: flex-start;
+        margin-top: 90px;
+        font-size: 25px;
+        line-height: 36px;
+        font-weight: 400;
+        font-style: normal;
+        color: var(--dark-black-color);
+        margin-bottom: 10px;
+        padding-left: 9px;
+      
+      }
+      
+      .catalog__text {
+        align-self: flex-start;
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: 400;
+        font-style: normal;
+        color: #9F9F9F;
+        padding-left: 9px;
+        margin-top: 0;
+        margin-bottom: 6px;
+      
+      }
+      
+      .catalog__heading.shirt{
+        margin-top: 10px;
+      }
+      
+      .container
+      {
+        padding: 0 15px;
+      }
+    
+    
     .header__container{
         z-index: 999;
         position: absolute;
@@ -8,6 +44,7 @@
         width: 100%;
         height: 49px;
         padding-top: 5px;
+        background-color: rgba(0,0,0, 0); 
     }
     .header__container-opacity{
         z-index: 50;
@@ -17,18 +54,21 @@
         width: 100%;
         height: 49px;
         background-color: rgba(1,1,1, 0.5);        
+        /* background-color: rgba(0,0,0, 0); */
     }
+
+
     .app__logo{
         padding-bottom: 30px;
         padding-left: 0.5em;
         letter-spacing: 0.5em;
-        font-size: 70px;
+        font-size: 30px;
     }
     
     .app__sub {
         padding-left: 0.5em;
         letter-spacing: 0.5em;
-        font-size: 40px;
+        font-size: 20px;
     }
 
     .app__glitch {
@@ -54,9 +94,13 @@
         font-size: 15px;
         padding: 8px 30px 6px 30px;
         text-align: center;
-        /* margin-top: 40%; */
+        margin-top: 50%;
         z-index: 100;
         font-size: 14px;             
+    }
+
+    .header__logo_text{
+        font-size: 20px;
     }
 
     .modal__btn {        
@@ -90,10 +134,153 @@
     /* position: relative; */
     height: 280px;    
     }
+    .header__button{
+        margin-right: 0;
+    }
+
+    .footer__icon-svg{
+        width: 32px;
+        height: 32px;
+    }
+
+    .footer__link{
+        font-size: 12px;
+    }
+
+    .footer__item:not(:last-child) {
+        margin-bottom: 16px;
+    }
+
+    .catalog__item {
+        /* max-width: 360px; */
+        width: 47%;
+    }
+    
+    .catalog__item:first-of-type {
+        width: 100%;  
+        /* max-width: 360px;   */
+        height: 100%;
+    }
+
+    .catalog__item_img {      
+        /* width: 190px; */
+        /* max-width: 360px; */
+        width: 100%;
+        height: 100%;
+    }
+
+    .catalog__item_imgwrapper { 
+        height: 100%;    
+    }
+    .catalog.container
+    {
+        padding-bottom: 40px;
+        position: relative;
+        top: 0px;
+        padding-bottom: 80px;
+        /* margin-bottom: 100px; */
+    }
+    .header__logo_text_cat.black{
+        color: var(--dark-black-color);
+    }
+    .catalog__heading {
+        align-self: flex-start;
+        margin-top: 90px;
+        font-size: 25px;
+        line-height: 36px;
+        font-weight: 400;
+        font-style: normal;
+        color: var(--dark-black-color);
+        margin-bottom: 10px;
+        padding-left: 9px;
+      
+      }
+      
+      .catalog__text {
+        align-self: flex-start;
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: 400;
+        font-style: normal;
+        color: #9F9F9F;
+        padding-left: 9px;
+        margin-top: 0;
+        margin-bottom: 6px;
+      
+      }
+      
+      .catalog__heading.shirt{
+        margin-top: 10px;
+      }
+      .cart {        
+        position: relative;
+        top: 0px;
+      }
+      .cart__text-whatsapp{
+        font-size: 12px;
+        line-height: 16px;
+      }
+      .about {
+        position: relative;
+        top: 0px;
+      }
+      .about__heading {
+        font-size: 14px;
+      }
+      
+      .about__text {
+        font-size: 12px;
+      }
+      .delivery__header {
+        font-size:18px;
+      }
+      
+      .delivery__text {        
+        font-size:14px;        
+      }
+      .delivery__li-text{
+        font-size: 12px;
+      }
+      
 }
 
 @media (max-width: 475px) {
 
+    .catalog__heading {
+        align-self: flex-start;
+        margin-top: 90px;
+        font-size: 25px;
+        line-height: 36px;
+        font-weight: 400;
+        font-style: normal;
+        color: var(--dark-black-color);
+        margin-bottom: 10px;
+        padding-left: 9px;
+      
+      }
+      
+      .catalog__text {
+        align-self: flex-start;
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: 400;
+        font-style: normal;
+        color: #9F9F9F;
+        padding-left: 9px;
+        margin-top: 0;
+        margin-bottom: 6px;
+      
+      }
+      
+      .catalog__heading.shirt{
+        margin-top: 10px;
+      }
+      
+      .catalog.container
+      {
+        padding-bottom: 40px;
+      }
+    
     .header__container{
         z-index: 999;
         position: absolute;
@@ -102,6 +289,7 @@
         width: 100%;
         height: 49px;
         padding-top: 5px;
+        background-color: rgba(0,0,0, 0); 
     }
     .header__container-opacity{
         z-index: 50;
@@ -110,12 +298,15 @@
         left: 0;
         width: 100%;
         height: 49px;
-        background-color: rgba(1,1,1, 0.5);        
+        background-color: rgba(1,1,1, 0.5);         
     }
 
     .hero {
         height: 520px;
-        /* position: relative; */
+        position: relative;
+        display: flex;
+        top: 0;
+        width: 100%;
 
     }
 
@@ -210,7 +401,7 @@
         max-width: 100%;
         /* position: absolute; */
         z-index: 100;
-        padding: 0px 20px;
+        /* padding: 0px 20px; */
         text-align: center;
     }
 
@@ -246,9 +437,13 @@
         width: 175px;
         padding: 10px 27px 8px 27px;
         text-align: center;
-        /* margin-top: 40%; */
+        margin-top: 50%;
         z-index: 100;
         /* font-size: 25px;       */
+    }
+
+    .header__button{
+        margin-right: 0;
     }
 
     .swiper-slide {
@@ -357,35 +552,6 @@
     .footer-right {
         margin-bottom: 22px;
     }
-/*
-    .footer__title {
-        font-size: 24px;
-    }
-
-    .form__input::placeholder {
-        font-size: 14px;
-    }
-
-    .form__area {
-        margin-bottom: 26px;
-    }
-
-    .form__area::placeholder {
-        font-size: 14px;
-    }
-
-    .form__inner {
-        display: flex;
-        flex-direction: column;
-    }
-
-    .form__btn {
-        margin-right: 0;
-        margin-bottom: 18px;
-        align-self: center;
-        padding: 14px 33px;
-        font-size: 12px;
-    }*/
 
     .form__label {
         padding-left: 5px;
@@ -443,5 +609,108 @@
         width: 100%;
     }
 
+    .footer__icon-svg{
+        width: 32px;
+        height: 32px;
+    }
+
+    .footer__link{
+        font-size: 12px;
+    }
+
+    .footer__item:not(:last-child) {
+        margin-bottom: 16px;
+    }
+
+    .catalog__item {
+        /* max-width: 360px; */
+        width: 47%;
+    }
     
+    .catalog__item:first-of-type {
+        width: 100%;  
+        /* max-width: 360px;   */
+        height: 100%;
+    }
+
+    .catalog__item_img {      
+        /* width: 190px; */
+        /* max-width: 360px; */
+        width: 100%;
+        height: 100%;
+    }
+
+    .catalog__item_imgwrapper { 
+
+        height: 100%;    
+    }
+
+    .container
+    {
+        padding: 0 15px;
+    }
+
+    .header__logo_text_cat.black{
+        color: var(--dark-black-color);
+    }
+    .catalog__heading {
+        align-self: flex-start;
+        margin-top: 90px;
+        font-size: 25px;
+        line-height: 36px;
+        font-weight: 400;
+        font-style: normal;
+        color: var(--dark-black-color);
+        margin-bottom: 10px;
+        padding-left: 9px;
+      
+      }
+      
+      .catalog__text {
+        align-self: flex-start;
+        font-size: 14px;
+        line-height: 17px;
+        font-weight: 400;
+        font-style: normal;
+        color: #9F9F9F;
+        padding-left: 9px;
+        margin-top: 0;
+        margin-bottom: 6px;
+      
+      }
+      
+      .catalog__heading.shirt{
+        margin-top: 10px;
+      }
+
+      .cart {        
+        position: relative;
+        top: 0px;
+      }
+      .cart__text-whatsapp{
+        font-size: 12px;
+        line-height: 16px;
+      }
+      .about {
+        position: relative;
+        top: 0px;
+      }
+      .about__heading {
+        font-size: 14px;
+      }
+      
+      .about__text {
+        font-size: 12px;
+      }
+
+      .delivery__header {
+        font-size:18px;
+      }
+      
+      .delivery__text {        
+        font-size:14px;        
+      }
+      .delivery__li-text{
+        font-size: 12px;
+      }
 }
