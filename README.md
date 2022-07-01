@@ -1,3 +1,5 @@
 # visokomerie
-visokomerie
-https://roma69rus.github.io/visokomerie/
+Верстка страниц HTML5 и CSS для интернет магазина 
+
+Проект тут:
+https://github.com/roma69rus/visokomerie3
